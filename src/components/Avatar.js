@@ -76,7 +76,7 @@ const handleAdmin = () => {
 
         {(cookies.get('authentication') === undefined) ?
          <MenuItem onClick={handleSignIn} >Sign In</MenuItem> : 
-         <MenuItem href='/'  onClick={handleSignOut} >Sign Out</MenuItem>}
+         <MenuItem onClick={handleSignOut} >Sign Out</MenuItem>}
        {cookies.get('authentication') !== undefined &&
        <>
         <MenuItem onClick={handleMyAccount}>My account</MenuItem>

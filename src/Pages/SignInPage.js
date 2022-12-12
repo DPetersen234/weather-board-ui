@@ -28,12 +28,14 @@ const cookies = new Cookies();
 
 export default function SignIn() {
   let navigate = useNavigate();
+  const [userHold, setUserHold] = useState([])
   const [errorCode, setErrorCode] = useState(0)
   const [loadUser, setLoadUser] = useState(false)
 
   const handleSubmit = async (event) => {
     setLoadUser(true)
     event.preventDefault();
+    
     const data = new FormData(event.currentTarget);
 
     fetch(`${url}/users/login`, {
@@ -45,7 +47,8 @@ export default function SignIn() {
       })
     }).then(data => data.json())
     .then(data => {
-      console.log(data)
+      console.log('userdata:',data)
+      setUserHold(data)
       if (data.user_name) {
         cookies.remove('authentication', {path: '/'})
         cookies.set('authentication', data, { path: '/'})
@@ -55,12 +58,14 @@ export default function SignIn() {
       } else {
         setErrorCode(data)
       }
-    })
+    }
+    )
   };
   if(loadUser === true){
+    
     return(
       <Box sx={{display:'flex', placeContent:'center center', paddingTop:'10%'}}>
-        <CircularProgress/>
+        <CircularProgress sx={{color:'text.primary'}} />
       </Box>
     )
   }else{
@@ -142,10 +147,10 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2, bgcolor:'text.secondary',
+              sx={{ mt: 3, mb: 2, bgcolor:'text.primary', color:'background.paper',
             '&:hover':{
-             backgroundColor:'text.primary',
-             color:'background.paper'
+             backgroundColor:'text.secondary',
+             color:'text.primary'
             } }}
             >
               Sign In

@@ -241,13 +241,14 @@ const WindButton = () => {
                             end: (value === '25 kt observed clear') ? '1900-01-01 00:00:01' : fullEnd,
                             direction: PSFBWindProperties["25 kt observed"],
                             user_name: user.user_name
-                        }).then(() => {
-                            let number = toggle + 1
-
-                            setToggle(number)
-                            console.log('button', number)
-                            setLoading(0)
                         })
+                    })
+                    .then(() => {
+                        let number = toggle + 1
+
+                        setToggle(number)
+                        console.log('button', number)
+                        setLoading(0)
                     }
                     )
                 } else if (value === "Strong Winds" || value === "Strong Winds clear") {
@@ -266,13 +267,13 @@ const WindButton = () => {
                             direction: PSFBWindProperties["Strong Winds 1"],
                             speed: PSFBWindProperties["Strong Winds 2"],
                             user_name: user.user_name
-                        }).then(() => {
-                            let number = toggle + 1
-
-                            setToggle(number)
-                            console.log('button', number)
-                            setLoading(0)
                         })
+                    }).then(() => {
+                        let number = toggle + 1
+
+                        setToggle(number)
+                        console.log('button', number)
+                        setLoading(0)
                     })
 
 
@@ -292,13 +293,13 @@ const WindButton = () => {
                             direction: PSFBWindProperties["Damaging Winds 1"],
                             speed: PSFBWindProperties["Damaging Winds 2"],
                             user_name: user.user_name
-                        }).then(() => {
-                            let number = toggle + 1
-
-                            setToggle(number)
-                            console.log('button', number)
-                            setLoading(0)
                         })
+                    }).then(() => {
+                        let number = toggle + 1
+
+                        setToggle(number)
+                        console.log('button', number)
+                        setLoading(0)
                     })
                 }
             }

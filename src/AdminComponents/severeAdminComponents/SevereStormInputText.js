@@ -35,7 +35,24 @@ export default function SevereStormInputText({severeStormTime, setSevereStormTim
       autoComplete="off"
     >
       <TextField
-      InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="date"
         id="beginning-date"
         label="Enter Beginning Date"
@@ -45,7 +62,24 @@ export default function SevereStormInputText({severeStormTime, setSevereStormTim
         required
       />
       <TextField
-      InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="time"
         id="beginning-time"
         label="Enter Beginning Time"
@@ -55,7 +89,24 @@ export default function SevereStormInputText({severeStormTime, setSevereStormTim
         required
       />
       <TextField
-      InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="date"
         id="end-date"
         label="Enter Ending Date"
@@ -65,7 +116,24 @@ export default function SevereStormInputText({severeStormTime, setSevereStormTim
         required
       />
       <TextField
-        InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+        InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="time"
         id="end-time"
         label="Enter Ending Time"

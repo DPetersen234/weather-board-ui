@@ -19,6 +19,7 @@ const CapeInnerConditions = ({ item, location }) => {
             setImagePath('../../images/psfb.PNG')
             navigate('/area')
         }else{
+            setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
             setSite(location)
             navigate('/site')
         }
@@ -45,11 +46,12 @@ const CapeInnerConditions = ({ item, location }) => {
             >
             <div onClick={HandleRouting} style={{
                 cursor:'pointer',
-                width: (tabletFlex ? '20%' : '40%'),
-                marginRight:(tabletFlex ? '0' : '10%'),
+                width: ( tabletFlex ? '20%' : '40%'),
+                marginRight:(tabletFlex ? '0px' : '18%'),
                 verticalAlign: 'middle',
                 color: (item.type == 'Clear' ? mode.clear.locationColor : (item.category == 'Warning') ? mode.warning.locationColor : (item.category == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor),
                 fontWeight: 'bold',
+                
 
             }}>
                 {location} <div style={{
@@ -61,9 +63,9 @@ const CapeInnerConditions = ({ item, location }) => {
 
             <div onClick={HandleRouting} style={{
                 cursor:'pointer',
-                width: '80%',
+                width: (CCSFSLightning.length <=1 && tabletFlex ? '60%' : (tabletFlex) ? '70%': '100%'),
                 margin: '0 auto',
-                marginRight: '5px',
+                marginRight: (CCSFSLightning.length <=1 && tabletFlex ? '-2%' : 'auto'),
                 marginBottom: '5px',
                 backgroundColor: ((item.type === 'Clear')? mode.clear.innerDiv : (item.category === 'Warning') ? mode.warning.innerDiv : (item.category==='Watch')? mode.watch.innerDiv : mode.advisory.innerDiv),
                 border:`2px solid ${border}`,

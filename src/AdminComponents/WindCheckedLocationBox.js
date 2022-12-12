@@ -29,8 +29,23 @@ const WindCheckedLocationBox = ({ label, setWindCheckedLocationValues, windCheck
                     
                             < div >
                             <Box style={{paddingLeft: '20px'}}>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">Locations</InputLabel>
+                                <FormControl fullWidth sx={{
+                                    '.MuiOutlinedInput-notchedOutline':{
+                                        borderColor:'text.primary',
+                                    },
+                                    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
+                                        borderColor:'text.secondary'
+                                    }
+                                    
+                                }}>
+                                    <InputLabel id="demo-simple-select-label"
+                                    sx={{
+                                        color:'text.primary',
+                                        '&.Mui-focused':{
+                                            color:'text.secondary'
+                                        },
+                                    }}
+                                    >Locations</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"

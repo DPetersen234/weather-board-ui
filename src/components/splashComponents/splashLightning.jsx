@@ -116,9 +116,10 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
 
                                         marginTop: '15px',
                                         height: 'auto',
-                                        width: (tabletFlex ? '99%' : '98%'),
+                                        width: (tabletFlex ? '99.1%' : '98%'),
                                         margin: '10px',
                                         paddingLeft: '5px',
+                                        flex: 1
 
                                     }}
                                     xs={2}
@@ -139,7 +140,7 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
 
                                     }}>
                                         <div style={{
-                                            width: (tabletFlex ?'50%' : '100%'),
+                                            width: (CCSFSLightning.length > 1 && tabletFlex ?'50%' : '100%'),
                                             margin: '0',
                                             
                                             display: 'flex',
@@ -148,7 +149,7 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                         }}>
                                             <div style={{
                                                 
-                                                width: (tabletFlex ? (CCSFSLightning.length <=1 ? '35%' : '36%') : '70%'),
+                                                width: (tabletFlex ? (CCSFSLightning.length <=1 ? '85%' : '36%') : '70%'),
                                                 
                                             }}>
 
@@ -174,7 +175,7 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                                 End Time
                                             </div>
                                             <div style={{
-                                                width: '20%',
+                                                width: '25%',
                                                 fontSize: '75%',
                                                 paddingLeft:(CCSFSLightning.length <=1 ? '2%' : '0%')
                                             }}>

@@ -36,6 +36,7 @@ function App() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [area, setArea] = useState((cookies.get('area') !== [] ? cookies.get('area') : []))
   const [site, setSite] = useState((cookies.get('site') !== [] ? cookies.get('site') : []))
+  const [profiler, setProfiler] = useState([])
   const [lightning, setLightning] = useState([])
   const [themeToggle, setThemeToggle] = useState(false)
   const [lightningLocation, setLightningLocation] = useState([])
@@ -342,7 +343,8 @@ function App() {
     KSCLightning,
     setKSCLightning,
     OtherLightning,
-    setOtherLightning
+    setOtherLightning,
+    profiler, setProfiler
   }
 
   const flexBasis = useMediaQuery("(min-width:700px)");
@@ -397,7 +399,7 @@ function App() {
   if (loading !== 0) {
     return (
       <Box sx={{ display: 'flex', placeContent: 'center center', paddingTop: '10%' }}>
-        <CircularProgress />
+        <CircularProgress sx={{color:'text.primary'}} />
       </Box>
     )
   } else {

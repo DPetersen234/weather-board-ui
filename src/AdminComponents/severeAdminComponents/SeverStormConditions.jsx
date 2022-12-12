@@ -46,9 +46,9 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                 width: '100%',
                 margin: '0 auto',
                 justifyContent: 'space-evenly',
-                
+
             }}>
-                <div style={{width:'25%'}}>
+                <div style={{ width: '25%' }}>
                     <label>
                         <input type="checkbox"
                             id={expectedCategory[0]}
@@ -62,7 +62,7 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                         }}>{expectedCategory[0]}</span>
                     </label>
                 </div>
-                <div style={{width:'25%'}}>
+                <div style={{ width: '25%' }}>
                     <label>
                         <input type="checkbox"
                             id={expectedCategory[1]}
@@ -77,7 +77,7 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                         }}>{expectedCategory[1]}</span>
                     </label>
                 </div>
-                <div style={{width:'27%'}}
+                <div style={{ width: '27%' }}
                 >
                     <label>
                         <input type="checkbox" style={{
@@ -99,11 +99,11 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                 <div style={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
-                    
+
                 }}>
                     <div style={{
                         width: '25%',
-                        
+
                     }}>
                         <label>
                             <input type="checkbox"
@@ -120,7 +120,7 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                     </div>
                     <div style={{
                         width: '25%',
-                        
+
                     }}>
                         <label>
                             <input type="checkbox" style={{
@@ -137,7 +137,7 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                     </div>
                     <div style={{
                         width: '27%',
-                        
+
                     }}>
                         <label>
                             <input type="checkbox" style={{
@@ -161,23 +161,54 @@ const SevereStormConditions = ({ severeType, setSevereType, stormConditions, set
                         width: '25%'
                     }}>
 
-                        <TextField disabled={stormConditionsChecked.includes(expectedConditions[0]) == false} id={expectedConditions[0]} label="Wind Speed" variant="filled" type="number"
+                        <TextField
+                            disabled={stormConditionsChecked.includes(expectedConditions[0]) == false}
+                            id={expectedConditions[0]} label="Wind Speed" variant="filled" type="number"
                             onChange={(e) => textInput(e)}
+                            InputLabelProps={{
+                                sx: {
+                                    color: 'text.primary',
+                                    '&.Mui-focused': {
+                                        color: 'text.secondary'
+                                    },
+                                }
+                            }}
                         />
                     </div>
 
                     <div style={{
                         width: '25%'
                     }}>
-                        <TextField disabled={stormConditionsChecked.includes(expectedConditions[1]) == false} id={expectedConditions[1]} label="Hail Size" variant="filled" type="number"
-                            onChange={(e) => textInput(e)} />
+                        <TextField
+                            disabled={stormConditionsChecked.includes(expectedConditions[1]) == false}
+                            id={expectedConditions[1]} label="Hail Size" variant="filled" type="number"
+                            onChange={(e) => textInput(e)}
+                            InputLabelProps={{
+                                sx: {
+                                    color: 'text.primary',
+                                    '&.Mui-focused': {
+                                        color: 'text.secondary'
+                                    },
+                                }
+                            }} />
+
                     </div>
 
                     <div style={{
                         width: '25%'
                     }}>
-                        <TextField disabled={stormConditionsChecked.includes(expectedConditions[2]) == false} id={expectedConditions[2]} label="Direction" variant="filled" type="number"
-                            onChange={(e) => textInput(e)} />
+                        <TextField
+                            disabled={stormConditionsChecked.includes(expectedConditions[2]) == false}
+                            id={expectedConditions[2]} label="Direction" variant="filled" type="number"
+                            onChange={(e) => textInput(e)}
+                            InputLabelProps={{
+                                sx: {
+                                    color: 'text.primary',
+                                    '&.Mui-focused': {
+                                        color: 'text.secondary'
+                                    },
+                                }
+                            }} />
                     </div>
                 </div>
             </div>

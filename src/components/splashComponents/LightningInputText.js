@@ -37,7 +37,23 @@ export default function LightningInputText({lightningTime, lightningTime2, setli
       autoComplete="off"
     >
       <TextField
-      InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        },
+      }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="date"
         id="beginning-date"
         label="Enter Beginning Date"
@@ -48,7 +64,24 @@ export default function LightningInputText({lightningTime, lightningTime2, setli
       />
 
        <TextField
-      InputLabelProps={{ shrink: true }}
+       sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="time"
         id="beginning-time"
         label="Enter Beginning Time"
@@ -59,7 +92,24 @@ export default function LightningInputText({lightningTime, lightningTime2, setli
       />
            
            <TextField
-      InputLabelProps={{ shrink: true }}
+           sx={{
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: 'text.primary',
+            },
+            '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'text.secondary'
+            }
+    
+          }}
+      InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+        }
+      }}
         type="date"
         id="end-date"
         label="Enter Ending Date"
@@ -69,7 +119,25 @@ export default function LightningInputText({lightningTime, lightningTime2, setli
         required
       />
       <TextField
-        InputLabelProps={{ shrink: true }}
+      sx={{
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.primary',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'text.secondary'
+        }
+
+      }}
+        InputLabelProps={{
+        shrink: true,
+        sx: {
+          color: 'text.primary',
+          '&.Mui-focused': {
+            color: 'text.secondary',
+          },
+          
+        }
+      }}
         type="time"
         id="end-time"
         label="Enter Ending Time"

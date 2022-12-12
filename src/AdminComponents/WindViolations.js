@@ -59,8 +59,8 @@ const WindViolationsView = () => {
                                 }}>Location</h1>
                             </div>
                             <div>
-                                <FormGroup>
-                                    <FormControlLabel control={<h4 style={{fontSize: '14px'}}><WindCheckedLocationBox checked={checked} label={windLocations} setWindCheckedLocationValues={setWindCheckedLocationValues} windCheckedLocationValues={windCheckedLocationValues} /></h4>} />
+                                <FormGroup color='text.primary'>
+                                    <FormControlLabel  control={<h4 style={{fontSize: '14px'}}><WindCheckedLocationBox checked={checked} label={windLocations} setWindCheckedLocationValues={setWindCheckedLocationValues} windCheckedLocationValues={windCheckedLocationValues} /></h4>} />
                                 </FormGroup>
                             </div>
                         </Paper>

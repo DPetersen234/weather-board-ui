@@ -10,18 +10,21 @@ import {useNavigate} from 'react-router-dom'
 
 const InnerConditions = ({ item, location }) => {
     const navigate = useNavigate()
-    const { showCountdowns,site, setSite, setArea, setImagePath } = useContext(AppContext)
+    const { showCountdowns,site, setSite, setArea, setImagePath, area } = useContext(AppContext)
     const { mode } = useContext(AppContext)
     const HandleRouting = () =>{
         if (location === 'Patrick SFB') {
             setArea([location])
             setImagePath('../../images/psfb.PNG')
             navigate('/area')
-        }else{
+        }else {
+            (location === 'KSC Industrial' || location === 'LC-39' || location === 'SLF') ? setArea(['KSC Industrial', 'LC-39', 'SLF']) :
+            (location === 'Cape Central' || location ===  'Port' || location ===  'CX-20/16/LZ' || location ===  'CX-36/46' || location ===  'CX-37/ASOC/PPF' || location ===  'CX-40/41/SPOC') ? setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC']) :
+             setArea(['CIDCO Park', 'Astrotech'])
             setSite(location)
             navigate('/site')
-        }
-        
+            
+        } 
     }
 
     let border = (
@@ -33,8 +36,6 @@ const InnerConditions = ({ item, location }) => {
             marginBottom:'3px',
             lineHeight: '100%',
             width:'100%',
-            
-           
         }}
             >
             <div onClick={HandleRouting} style={{
@@ -56,7 +57,7 @@ const InnerConditions = ({ item, location }) => {
 
             <div onClick={HandleRouting} style={{
                 cursor:'pointer',
-                width: '80%',
+                width: '75%',
                 margin: '0 auto',
                 marginRight: '5px',
                 marginBottom: '5px',

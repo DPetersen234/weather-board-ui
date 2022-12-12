@@ -87,7 +87,7 @@ export default function SignUp() {
   if(loading === true){
     return(
       <Box sx={{display:'flex', placeContent:'center center', paddingTop:'10%'}}>
-      <CircularProgress/>
+      <CircularProgress sx={{color:'text.primary'}}/>
       </Box>
     )
   }else{
@@ -202,10 +202,10 @@ export default function SignUp() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, bgcolor:'text.secondary',
+                sx={{ mt: 3, mb: 2, bgcolor:'text.primary', color:'background.paper',
             '&:hover':{
-             backgroundColor:'text.primary',
-             color:'background.paper'
+             backgroundColor:'text.secondary',
+             color:'text.primary'
             } }}
               >
                 Sign Up
@@ -253,7 +253,18 @@ export default function SignUp() {
                 <Typography id="transition-modal-title" variant="h6" component="h2">
                   Account Created Successfully
                 </Typography>
-                <Button onClick={confirmHandeler}id="transition-modal-description" sx={{ mt: 2 }}>
+                <Button 
+                onClick={confirmHandeler}
+                id="transition-modal-description"
+                 sx={{ 
+                  mt: 2,
+                  color:'background.paper',
+                  bgcolor:'text.primary',
+                  '&:hover':{
+                    backgroundColor:'text.secondary',
+                    color:'text.primary'
+                   }
+                  }}>
                   Confirm
                 </Button>
                 </div>

@@ -228,7 +228,7 @@ const AreaView = () => {
                                     <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
                                         
                                         <div style={{ height: '25px', width: '100%' }}>
-                                            <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
+                                            <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
                                         </div>
                                     </ListItem>
                                     <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>

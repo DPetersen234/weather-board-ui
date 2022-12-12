@@ -15,7 +15,7 @@ const SplashWind = ({ states }) => {
     const { showCountdowns, setArea, setCookieData, setImagePath, site, area, windSplashToggle, setWindSplashToggle, capeWindToggle, setCapeWindToggle, kscWindToggle, setKscWindToggle, psfbWindToggle, setPsfbWindToggle } = useContext(AppContext)
 
     const navigate = useNavigate();
-
+    
     const handleCCSFS = () => {
         setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
         setImagePath('./images/CCSFS.jpg')
@@ -39,8 +39,9 @@ const SplashWind = ({ states }) => {
     }
 
     const tabletFlex = useMediaQuery('(min-width: 1200px)')
-
-
+    const capeCardOnly = (capeWindToggle === true && kscWindToggle === false && psfbWindToggle === false)
+    const kscCardOnly = (capeWindToggle === false && kscWindToggle === true && psfbWindToggle === false)
+    const psfbCardOnly = (capeWindToggle === false && kscWindToggle === false && psfbWindToggle === true)
     return (
         <Card elevation={5} sx={{
             height: '50%',
@@ -99,7 +100,7 @@ const SplashWind = ({ states }) => {
 
                                 }}>
                                     <div style={{
-                                        width: '20%',
+                                        width: (capeCardOnly ? '28%' : '20%'),
                                         fontSize: '75%'
 
                                     }}></div>
@@ -168,7 +169,7 @@ const SplashWind = ({ states }) => {
 
                                 }}>
                                     <div style={{
-                                        width: '20%',
+                                        width: (kscCardOnly ? '28%' : '20%'),
                                         fontSize: '75%',
 
                                     }}></div>
@@ -237,7 +238,7 @@ const SplashWind = ({ states }) => {
 
                                 }}>
                                     <div style={{
-                                        width: '20%',
+                                        width: (psfbCardOnly ? '28%' : '20%'),
                                         fontSize: '75%',
 
                                     }}></div>
