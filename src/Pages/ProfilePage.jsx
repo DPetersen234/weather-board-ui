@@ -11,14 +11,16 @@ import { RiThunderstormsLine } from 'react-icons/ri'
 import StormProfile from '../components/profileComponents/stormProfile'
 import WindProfile from '../components/profileComponents/windProfile'
 import LightningProfile from '../components/profileComponents/lightningProfile'
-import MobileNav from '../test components/MobileNav'
+import GeneralProfileSettings from '../components/profileComponents/generalProfile'
+
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 const ProfilePage = () =>{
     const {themeToggle} = useContext(AppContext)
     const flexBasis = useMediaQuery('(min-width: 700px)')
     const tabletFlex = useMediaQuery('(min-width: 1200px)')
     const boxStyle = {
-        height:(flexBasis ? '100vh': '165vh'),
+        height:(flexBasis ? '145vh': '185vh'),
         width:'auto',
         display:'flex',
         flexDirection: 'column',
@@ -53,7 +55,7 @@ const ProfilePage = () =>{
         <Box>
         <LeftBar/>
         <Box sx={boxStyle} style={{marginTop:(tabletFlex ? '0%' : '5%')}} >
-            <Card  sx={cardStyle} style ={{height : (flexBasis ? '50%' : '60%')}}>  
+            <Card  sx={cardStyle} style ={{flexDirection:(flexBasis ? 'row' : 'column'), height : (flexBasis ? '50%' : '60%')}}>  
                 
                 <h2 style={{textDecoration:'underline'}}><BsLightning/> Lightning Settings</h2>
                 
@@ -76,12 +78,12 @@ const ProfilePage = () =>{
                     
                 </div>
             </Card>
-            {/* <Card sx={cardStyle} >
-                <h2><RiThunderstormsLine/> Storm Settings</h2>
-                <Paper sx ={paperStyle}>
-                    <StormProfile/>
-                </Paper>
-            </Card> */}
+           <Card sx= {cardStyle}>
+            <h2 style ={{textDecoration:'underline'}}><SettingsOutlinedIcon/> General Settings</h2>
+            <Paper sx={paperStyle} style={{display:'flex', flexDirection:'row'}}>
+                <GeneralProfileSettings/>
+            </Paper>
+           </Card>
         </Box>
         </Box>
     )

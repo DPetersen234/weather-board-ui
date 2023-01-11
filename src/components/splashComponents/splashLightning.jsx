@@ -149,34 +149,34 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                         }}>
                                             <div style={{
                                                 
-                                                width: (tabletFlex ? (CCSFSLightning.length <=1 ? '85%' : '36%') : '70%'),
+                                                width: (tabletFlex ? (CCSFSLightning.length <=1 ? '85%' : '43%') : '70%'),
                                                 
                                             }}>
 
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                             }}>
                                                 Status
                                             </div>
                                             <div style={{
-                                                width: (tabletFlex ? '23%' : '20%'),
-                                                fontSize: '75%',
+                                                width: (tabletFlex ? '22%' : '20%'),
+                                                fontSize: '100%',
                                                 paddingLeft:(CCSFSLightning.length <=1 ? '2%' : '0%')
                                             }}>
                                                 Start Time
                                             </div>
                                             <div style={{
                                                 width: (tabletFlex? '28%' : '20%'),
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                                 paddingLeft:(CCSFSLightning.length <=1 ? '1%' : '0%')
                                             }}>
                                                 End Time
                                             </div>
                                             <div style={{
-                                                width: '25%',
-                                                fontSize: '75%',
+                                                width: '28%',
+                                                fontSize: '100%',
                                                 paddingLeft:(CCSFSLightning.length <=1 ? '2%' : '0%')
                                             }}>
                                                 {showCountdowns === true ? "Countdown" : ''}
@@ -198,25 +198,29 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 Status
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 Start Time
                                             </div>
                                             <div style={{
                                                 width: '28%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 End Time
                                             </div>
                                             <div style={{
-                                                width: '22%',
-                                                fontSize: '75%',
+                                                width: '27%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 {showCountdowns === true ? "Countdown" : ''}
                                             </div>
@@ -278,26 +282,30 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                                 width: '5%'
                                             }}></div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '17%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 Status
                                             </div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '22%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 Start Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
+                                                
                                             }}>
                                                 End Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
+                                                
                                             }}> {showCountdowns === true ? "Countdown" : ''}
                                             </div>
                                         </div>
@@ -339,26 +347,26 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                                 width: '5%'
                                             }}></div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '17%',
+                                                fontSize: '100%',
                                             }}>
                                                 Status
                                             </div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '22%',
+                                                fontSize: '100%',
                                             }}>
                                                 Start Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                             }}>
                                                 End Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                             }}>
                                                 {showCountdowns === true ? "Countdown" : ''}
                                             </div>
@@ -402,26 +410,26 @@ const tabletFlex = useMediaQuery('(min-width: 1200px)')
                                                 width: '5%'
                                             }}></div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '17%',
+                                                fontSize: '100%',
                                             }}>
                                                 Status
                                             </div>
                                             <div style={{
-                                                width: '20%',
-                                                fontSize: '75%',
+                                                width: '22%',
+                                                fontSize: '100%',
                                             }}>
                                                 Start Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                             }}>
                                                 End Time
                                             </div>
                                             <div style={{
                                                 width: '20%',
-                                                fontSize: '75%',
+                                                fontSize: '100%',
                                             }}>
                                                 {showCountdowns === true ? "Countdown" : ''}
                                             </div>

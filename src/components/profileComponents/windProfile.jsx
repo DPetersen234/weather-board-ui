@@ -18,7 +18,8 @@ const {windSplashToggle,
 
 
 const handleWindSplash = () => {
-   windSplashToggle === true ? setWindSplashToggle(false) : setWindSplashToggle(true)
+   windSplashToggle === true ? setWindSplashToggle(false)
+    : setWindSplashToggle(true)
 }
 
 const handleKSCWind = () => {

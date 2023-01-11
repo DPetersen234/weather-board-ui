@@ -42,6 +42,7 @@ const InnerConditions = ({ item, location }) => {
                 cursor:'pointer',
                 width: '40%',
                 marginRight: '10%',
+                fontSize:'115%',
                 verticalAlign: 'middle',
                 color: (item.type == 'Clear' ? mode.clear.locationColor : (item.category == 'Warning') ? mode.warning.locationColor : (item.category == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor),
                 fontWeight: 'bold',
@@ -113,7 +114,7 @@ const InnerConditions = ({ item, location }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.category == 'Warning') ? mode.warning.textColor : (item.category == 'Watch') ? mode.watch.textColor : mode.advisory.textColor),
 
                     }}>
-                        {item.start.slice(11, 16)}
+                        {item.type === 'Clear' ? '00:00' : `${item.start.slice(11, 16)}L`}
 
                     </div>
                 </div>
@@ -129,7 +130,7 @@ const InnerConditions = ({ item, location }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.category == 'Warning') ? mode.warning.textColor : (item.category == 'Watch') ? mode.watch.textColor : mode.advisory.textColor),
 
                     }}>
-                        {item.type == 'Clear' ? '00:00' : (item.category == 'Warning' ? "INDEF" : item.category == 'Watch' ? item.end.slice(11, 16) : "00:00")}
+                        {item.type == 'Clear' ? '00:00 ' : (item.category == 'Warning' ? "INDEF" : item.category == 'Watch' ? `${item.end.slice(11, 16)}L` : "00:00")}
                     </div>
                 </div>
                 <div style={{

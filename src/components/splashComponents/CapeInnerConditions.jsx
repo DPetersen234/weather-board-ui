@@ -49,6 +49,7 @@ const CapeInnerConditions = ({ item, location }) => {
                 width: ( tabletFlex ? '20%' : '40%'),
                 marginRight:(tabletFlex ? '0px' : '18%'),
                 verticalAlign: 'middle',
+                fontSize:'115%',
                 color: (item.type == 'Clear' ? mode.clear.locationColor : (item.category == 'Warning') ? mode.warning.locationColor : (item.category == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor),
                 fontWeight: 'bold',
                 
@@ -119,7 +120,7 @@ const CapeInnerConditions = ({ item, location }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.category == 'Warning') ? mode.warning.textColor : (item.category == 'Watch') ? mode.watch.textColor : mode.advisory.textColor),
 
                     }}>
-                        {item.start.slice(11, 16)}
+                        {item.type === 'Clear' ? '00:00' : `${item.start.slice(11, 16)}L`}
 
                     </div>
                 </div>
@@ -135,7 +136,7 @@ const CapeInnerConditions = ({ item, location }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.category == 'Warning') ? mode.warning.textColor : (item.category == 'Watch') ? mode.watch.textColor : mode.advisory.textColor),
 
                     }}>
-                        {item.type == 'Clear' ? '00:00' : (item.category == 'Warning' ? "INDEF" : item.category == 'Watch' ? item.end.slice(11, 16) : "00:00")}
+                        {item.type == 'Clear' ? '00:00' : (item.category == 'Warning' ? "INDEF" : item.category == 'Watch' ? `${item.end.slice(11, 16)}L` : "00:00")}
                     </div>
                 </div>
                 <div style={{

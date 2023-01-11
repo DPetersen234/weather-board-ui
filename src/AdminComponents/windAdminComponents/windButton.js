@@ -59,7 +59,7 @@ const WindButton = () => {
                         })
 
                     }).then(() => {
-                        let number = toggle + 1
+                        let number =  + 1
 
                         setToggle(number)
                         console.log('button', number)

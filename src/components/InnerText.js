@@ -82,10 +82,10 @@ const InnerText = () => {
 
                     >
                         <SplashLightning states={lightning} />
-                        {windSplashToggle === true && hideWindSplash()}
+                        {/* {windSplashToggle === true && hideWindSplash()} */}
                         {windSplashToggle === true &&
                             <SplashWind states={wind}/>}
-                        {stormSplashToggle === true && hideStormSplash()}
+                        {/* {stormSplashToggle === true && hideStormSplash()} */}
                         {stormSplashToggle === true &&
                             <SplashSevereStorm states={storm} />}
                     </Grid>

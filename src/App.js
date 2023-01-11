@@ -38,12 +38,14 @@ function App() {
   const [site, setSite] = useState((cookies.get('site') !== [] ? cookies.get('site') : []))
   const [profiler, setProfiler] = useState([])
   const [lightning, setLightning] = useState([])
-  const [themeToggle, setThemeToggle] = useState(false)
+  
   const [lightningLocation, setLightningLocation] = useState([])
   const [storm, setStorm] = useState([])
   const [wind, setWind] = useState([])
   const [loading, setLoading] = useState(1)
   const [imagePath, setImagePath] = useState((cookies.get('imagePath') !== '' ? cookies.get('imagePath') : ''))
+  const [userHold, setUserHold] = useState(cookies.get('authentication') !== undefined ? cookies.get('authentication') : {})
+  const [profileObj, setProfileObj] = useState({})
   const [cookieData, setCookieData] = useState({ area: '', site: '' })
   const [CCWindProperties, setCCWindProperties] = useState({
     "18 kt steady-state": undefined,
@@ -78,28 +80,31 @@ function App() {
   const [windEndTime, setWindEndTime] = useState('');
   const [weatherViolations, setWeatherViolations] = useState(undefined)
   const [CCcheckedValues, setCCcheckedValues] = useState([])
-  const [stormSplashToggle, setStormSplashToggle] = useState(true)
-  const [capeStormToggle, setCapeStormToggle]= useState(true)
-  const [kscStormToggle, setKscStormToggle]= useState(true)
-  const [psfbStormToggle, setPsfbStormToggle]= useState(true)
+  const [stormSplashToggle, setStormSplashToggle] = useState(cookies.get('authentication') !== undefined ? userHold.stormSplash : true)
+  const [capeStormToggle, setCapeStormToggle]= useState(cookies.get('authentication') !== undefined ? userHold.capeStorm : true)
+  const [kscStormToggle, setKscStormToggle]= useState(cookies.get('authentication') !== undefined ? userHold.kscStorm : true)
+  const [psfbStormToggle, setPsfbStormToggle]= useState(cookies.get('authentication') !== undefined ? userHold.psfbStorm : true)
   const [KSCCheckedValues, setKSCCheckedValues] = useState([])
-  const [windSplashToggle, setWindSplashToggle] = useState(true)
-  const [capeWindToggle, setCapeWindToggle] = useState(true)
-  const [psfbWindToggle, setPsfbWindToggle] = useState(true)
-  const [kscWindToggle, setKscWindToggle] = useState(true)
-  const [capeLightningToggle, setCapeLightningToggle] = useState(true)
-  const [kscLightningToggle, setKscLightningToggle] = useState(true)
-  const [otherLightningToggle, setOtherLightningToggle] = useState(true)
-  const [psfbLightningToggle, setPsfbLightningToggle] = useState(true)
+  const [windSplashToggle, setWindSplashToggle] = useState(cookies.get('authentication') !== undefined ? userHold.windSplash : true)
+  const [capeWindToggle, setCapeWindToggle] = useState(cookies.get('authentication') !== undefined ? userHold.capeWind : true)
+  const [psfbWindToggle, setPsfbWindToggle] = useState(cookies.get('authentication') !== undefined ? userHold.psfbWind : true)
+  const [kscWindToggle, setKscWindToggle] = useState(cookies.get('authentication') !== undefined ? userHold.kscWind : true)
+  const [capeLightningToggle, setCapeLightningToggle] = useState(cookies.get('authentication') !== undefined ? userHold.CCSFSLightningToggle : true)
+  const [kscLightningToggle, setKscLightningToggle] = useState(cookies.get('authentication') !== undefined ? userHold.KSCLightningToggle : true)
+  const [otherLightningToggle, setOtherLightningToggle] = useState(cookies.get('authentication') !== undefined ? userHold.OtherLightningToggle : true)
+  const [psfbLightningToggle, setPsfbLightningToggle] = useState(cookies.get('authentication') !== undefined ? userHold.psfbLightningToggle : true)
   const [PSFBCheckedValues, setPSFBCheckedValues] = useState([])
   const [refreshRate, setRefreshRate] = useState(60000)
   const [toggle, setToggle] = useState(0)
   const [showCountdowns, setShowCountdowns] = useState(true)
   const [someState, setSomeState] = useState(0)
-  const [CCSFSLightning, setCCSFSLightning] = useState(["Cape Central", "CX-20/16/LZ", "CX-36/46", "CX-37/ASOC/PPF", "CX-40/41/SPOC", "Port"])
-  const [KSCLightning, setKSCLightning] = useState(["KSC Industrial", "LC-39", "SLF"])
-  const [OtherLightning, setOtherLightning] = useState(["Astrotech", "CIDCO Park"])
-
+  const [CCSFSLightning, setCCSFSLightning] = useState( cookies.get('authentication') !== undefined ? userHold.capeLightning : ['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
+  const [KSCLightning, setKSCLightning] = useState(cookies.get('authentication') !== undefined ? userHold.kscLightning : ['SLF','KSC Industrial', 'LC-39'])
+  const [OtherLightning, setOtherLightning] = useState(cookies.get('authentication') !== undefined ? userHold.otherLightning : ['CIDCO Park', 'Astrotech'])
+  const [profileLoad, setProfileLoad] = useState(0)
+  const [themeText, setThemeText] = useState(cookies.get('authentication') !== undefined ? userHold.accessibility : 'default')
+  const [modeText, setModeText] = useState(cookies.get('authentication') !== undefined ? userHold.mode : 'light')
+  const [themeToggle, setThemeToggle] = useState(modeText === 'light' ? false : true)
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -112,7 +117,7 @@ function App() {
         
       },
     },
-  });
+  })
 
   const lightTheme = createTheme({
     palette:{
@@ -129,13 +134,13 @@ function App() {
         
       }
     },
-  });
+  })
 
   const defaultTheme = {
     clear: {
       border: '#035600',
       locationColor: '#03AD00',
-      innerDiv: '#F8FFF8',
+      innerDiv: '#E9F5EA',
       textColor: '#035600',
       iconColor: '#035600',
     },
@@ -161,8 +166,7 @@ function App() {
       iconColor: '#B800F9',
     }
   }
-  const [mode, setMode] = useState(defaultTheme)
-  const [theming, SetTheming] = useState( lightTheme )
+
   const protTheme = {
     clear: {
       border: '#39538f',
@@ -253,6 +257,12 @@ function App() {
       iconColor: '#651615',
     }
   }
+  const [mode, setMode] = useState(themeText === 'default' ? defaultTheme :
+  themeText === 'protanopia' ? protTheme :
+  themeText === 'deuteranopia' ? duetTheme: 
+  tritTheme
+)
+const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeText === 'light' ? lightTheme : lightTheme)
 
   const passContext = {
     area,
@@ -344,13 +354,23 @@ function App() {
     setKSCLightning,
     OtherLightning,
     setOtherLightning,
-    profiler, setProfiler
+    profiler,
+    setProfiler,
+    userHold,
+    setUserHold,
+    profileObj,
+    setProfileObj,
+    profileLoad, setProfileLoad,
+    setThemeText,
+    setModeText,
+    modeText,
+    themeText
   }
 
   const flexBasis = useMediaQuery("(min-width:700px)");
 
   useEffect(() => {
-    if (someState == 0) {
+    if (someState === 0) {
       Promise.all([
         fetch(`${url}/lightning`)
           .then(res => res.json())
@@ -361,7 +381,8 @@ function App() {
         fetch(`${url}/wind`)
           .then(res => res.json())
           .then(data => setWind(data))
-      ]).then(() => setLoading(0)).then(() => setSomeState(1))
+      ])
+      .then(() => setLoading(0)).then(() => setSomeState(1))
     }
     else {
       setLoading(0)
@@ -378,11 +399,12 @@ function App() {
             .then(data => setWind(data))
         ]).then(() => setLoading(0))
       }, refreshRate);
-      console.log(refreshRate);
+      
       return () => clearInterval(interval);
     }
-  }, [area, someState])
+  }, [area, someState, loading, userHold, refreshRate])
   useEffect(() => {
+    if (userHold){
     Promise.all([
       fetch(`${url}/lightning`)
         .then(res => res.json())
@@ -393,8 +415,8 @@ function App() {
       fetch(`${url}/wind`)
         .then(res => res.json())
         .then(data => setWind(data))
-    ])
-  }, [toggle])
+    ])}
+  }, [toggle, loading, userHold])
 
   if (loading !== 0) {
     return (
@@ -405,6 +427,7 @@ function App() {
   } else {
 
     return (
+
         <ThemeProvider theme={theming}>
         <CssBaseline/>
         <AppContext.Provider value={passContext}>

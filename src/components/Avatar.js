@@ -36,6 +36,7 @@ export default function AvatarMenu() {
   const handleSignOut = () => {
     
     cookies.remove('authentication', { path: '/' })
+    window.location.reload(false)
     navigate('/')
     
     setAnchorEl(null)

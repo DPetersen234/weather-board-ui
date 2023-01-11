@@ -24,6 +24,7 @@ export default function AccessibilityMenu() {
     }
 }
   const handleClick = (event) => {
+    
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () =>{

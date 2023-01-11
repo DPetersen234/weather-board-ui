@@ -22,6 +22,7 @@ const InnerWindConditions = ({ item, category }) => {
             <div style={{
                 width: '50%',
                 margin: '0',
+                fontSize:'115%',
                 verticalAlign: 'middle',
                 color: (item.type == 'Clear' ? mode.clear.locationColor : (item.type == 'Warning') ? mode.warning.locationColor : (item.type == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor),
                 fontWeight: 'bold',
@@ -90,7 +91,7 @@ const InnerWindConditions = ({ item, category }) => {
                         marginBottom: '3px',
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.type == 'Warning') ? mode.warning.textColor : (item.type == 'Watch') ? mode.watch.textColor : mode.advisory.textColor)
                     }}>
-                        {item.start.slice(11, 16)}
+                        {item.type === 'Clear' ? '00:00' : `${item.start.slice(11, 16)}L`}
                     </div>
                 </div>
                 <div style={{
@@ -104,7 +105,7 @@ const InnerWindConditions = ({ item, category }) => {
                         marginBottom: '3px',
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.type == 'Warning') ? mode.warning.textColor : (item.type == 'Watch') ? mode.watch.textColor : mode.advisory.textColor)
                     }}>
-                        {item.type == 'Clear' ? '00:00' : (item.type == 'Warning' ? (item.end.slice(11, 16)) : "INDEF")}
+                        {item.type == 'Clear' ? '00:00' : (item.type == 'Warning' ? `${(item.end.slice(11, 16))}L` : "INDEF")}
                     </div>
                 </div>
                 <div style={{

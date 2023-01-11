@@ -22,16 +22,17 @@ const InnerStormConditions = ({ item }) => {
             <div style={{
                 width: '50%',
                 margin: '0',
+                fontSize:'115%',
                 verticalAlign: 'middle',
                 color: (item.type == 'Clear' ? mode.clear.locationColor : (item.type == 'Warning') ? mode.warning.locationColor : (item.type == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor),
 
                 fontWeight: 'bold',
                 marginLeft: '10px',
             }}>
-                Expected Hail Size: {((item.type=='Clear') ? 'Clear': (item.type == 'Watch') ? 'Watch': (item.type =='Warning') ? `${item.hail_diameter} in`: 'Clear')}
+                Hail Size: {((item.type=='Clear') ? 'Clear': (item.type == 'Watch') ? 'Watch': (item.type =='Warning') ? `${item.hail_diameter} in`: 'Clear')}
                 <div style={{
                     color: (item.type == 'Clear' ? mode.clear.locationColor : (item.type == 'Warning') ? mode.warning.locationColor : (item.type == 'Watch') ? mode.watch.locationColor : mode.advisory.locationColor)
-                }}>Expected Winds: {((item.type == 'Clear') ? 'Clear': (item.type == 'Watch')? 'Watch' : (item.type =='Warning') ? `From: ${item.wind_direction}° at ${item.wind_speed} KT` :'Clear')}</div>
+                }}>Wind Speed: {((item.type == 'Clear') ? 'Clear': (item.type == 'Watch')? 'Watch' : (item.type =='Warning') ?`${item.wind_speed} KT` :'Clear')}</div>
             </div>
 
 
@@ -94,7 +95,7 @@ const InnerStormConditions = ({ item }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.type == 'Warning') ? mode.warning.textColor : (item.type == 'Watch') ? mode.watch.textColor : mode.advisory.textColor)
 
                     }}>
-                        {item.start.slice(11, 16)}
+                        {item.type === 'Clear' ? '00:00' : `${item.start.slice(11, 16)}L`}
                     </div>
                 </div>
                 <div style={{
@@ -109,7 +110,7 @@ const InnerStormConditions = ({ item }) => {
                         color: (item.type == 'Clear' ? mode.clear.textColor : (item.type == 'Warning') ? mode.warning.textColor : (item.type == 'Watch') ? mode.watch.textColor : mode.advisory.textColor)
 
                     }}>
-                        {item.end.slice(11, 16)}
+                        {item.type === 'Clear' ? '00:00' : `${item.end.slice(11, 16)}L`}
                     </div>
                 </div>
                 <div style={{

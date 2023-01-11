@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie'
 import { AppContext } from '../context/AppContext'
 import { CircularProgress } from '@mui/material'
 import Grid from '@mui/material/Grid';
+import HomeByLocation from './HomeByLocation'
 
 
 
@@ -27,6 +28,7 @@ const UserPage = () => {
             <Box sx={{ display: 'flex', height: 'auto', flexDirection: 'row', bgcolor: (themeToggle === false ? 'text.primary' : 'background.default') }}>
                 <LeftBar />
                 <InnerText />
+                {/* <HomeByLocation/> */}
 
             </Box>
         )

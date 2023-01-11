@@ -41,19 +41,19 @@ const SplashSevereStorm = ({ states }) => {
         <Card elevation={5} sx={{
             height: '50%',
             margin: '15px',
-            bgcolor:'primary.main'
+            bgcolor: 'primary.main'
 
 
-        }}><div style={{display:'flex', position:'relative'}}>
-            <h1 style={{
-                
-                width:'96.5%',
-                textAlign: "left",
-                margin:'10px',
-                marginLeft:'1%'
+        }}><div style={{ display: 'flex', position: 'relative' }}>
+                <h1 style={{
 
-            }}><RiThunderstormsLine /> Severe Storms</h1>
-            <StormSplashPop/>
+                    width: '96.5%',
+                    textAlign: "left",
+                    margin: '10px',
+                    marginLeft: '1%'
+
+                }}><RiThunderstormsLine /> Severe Storms</h1>
+                <StormSplashPop />
             </div>
             <div className="outerContainer" style={{
                 display: 'flex',
@@ -63,231 +63,222 @@ const SplashSevereStorm = ({ states }) => {
                 }}>
                     <div style={{
                         display: 'flex',
-                        flexDirection:(tabletFlex ? undefined : 'column')
+                        flexDirection: (tabletFlex ? undefined : 'column')
                     }}>
-                       {capeStormToggle === true && 
-                       <Card elevation={10}
-                            style={{
-                               
-                                margin: '10px',
-                                height: '75%',
-                                width: (tabletFlex ? '50%' : '98%'),
-                                flex: 1
+                        {capeStormToggle === true &&
+                            <Card elevation={10}
+                                style={{
 
-                            }}>
+                                    margin: '10px',
+                                    height: '75%',
+                                    width: (tabletFlex ? '50%' : '98%'),
+                                    flex: 1
 
-                            <h2 onClick={handleCCSFS} style={{
-                                textAlign: "left",
-                                marginLeft: '5px',
-                                cursor:'pointer',
-                                textDecoration:'underline'
+                                }}>
 
-                            }}>Cape Canaveral Space Force Station</h2>
-                            <div style={{
-                                display: 'flex',
-                                marginBottom: '5px',
-                            }}>
+                                <h2 onClick={handleCCSFS} style={{
+                                    textAlign: "left",
+                                    marginLeft: '5px',
+                                    cursor: 'pointer',
+                                    textDecoration: 'underline'
+
+                                }}>Cape Canaveral Space Force Station</h2>
                                 <div style={{
-                                    width: '50%',
-                                    margin: '0'
-                                }}></div>
-                                <div style={{
-                                    width: '70%',
                                     display: 'flex',
-                                    justifyContent: 'space-evenly',
+                                    marginBottom: '5px',
                                 }}>
                                     <div style={{
-                                        width: '5%'
-                                    }}><div style={{
-                                        width: '95%',
-                                    }}>
+                                        width: '78%',
+                                        margin: '0'
+                                    }}></div>
+                                        <div style={{
+                                            width: '5%'
+                                        }}>
 
                                         </div>
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                    }}>
                                         <div style={{
-                                            width: '95%',
-                                            fontSize: '75%',
+                                            width: '22%',
+                                            fontSize: '100%',
+                                            
                                         }}>
                                             Status
                                         </div>
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-
-                                    }}>
                                         <div style={{
-                                            width: '95%',
-                                            fontSize: '75%',
+                                            width: '25%',
+                                            fontSize: '100%',
+                                            
                                         }}>
                                             Start Time
                                         </div>
-                                    </div>
+                                    
                                     <div style={{
-                                        width: '20%',
+                                        width: '25%',
+                                        fontSize: '100%',
+                                        
+                                    }}>
+                                        End Time
+                                    </div>
+
+
+                                    <div style={{
+                                        width: '25%',
+                                        fontSize: '100%',
+                                        
+                                    }}>
+                                        {showCountdowns === true ? "Countdown" : ''}
+                                    </div>
+
+                                </div>
+
+
+                                {CCSFSSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === 'CCSFS')} location={location} />)}
+
+                            </Card>}
+                        {kscStormToggle === true &&
+                            <Card elevation={10}
+                                style={{
+
+                                    margin: '10px',
+                                    height: '75%',
+                                    width: (tabletFlex ? '50%' : '98%'),
+                                    flex: 1
+
+                                }}>
+
+                                <h2 onClick={handleKSC} style={{
+                                    textAlign: "left",
+                                    marginLeft: '5px',
+                                    cursor: 'pointer',
+                                    textDecoration: 'underline'
+                                }}>Kennedy Space Center</h2>
+                                <div style={{
+                                    display: 'flex',
+                                    marginBottom: '5px',
+                                }}>
+                                    <div style={{
+                                        width: '40%',
+                                        margin: '0'
+                                    }}></div>
+                                    <div style={{
+                                        display: 'flex',
+                                        width: '70%',
+                                        justifyContent: 'space-evenly'
+
                                     }}>
                                         <div style={{
-                                            width: '95%',
-                                            fontSize: '75%',
+                                            width: '5%'
+                                        }}></div>
+                                        <div style={{
+                                            width: '22%',
+                                            paddingLeft: '22px',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            Status
+                                        </div>
+                                        <div style={{
+                                            width: '20%',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            Start Time
+                                        </div>
+                                        <div style={{
+                                            width: '20%',
+                                            fontSize: '100%',
+                                            
                                         }}>
                                             End Time
                                         </div>
-                                    </div>
-                                    <div style={{
-                                        width: '20%'
-                                    }}>
                                         <div style={{
-                                            width: '95%',
-                                            fontSize: '75%',
+                                            width: '20%',
+                                            marginRight: '2px',
+                                            fontSize: '100%',
+                                            
                                         }}>
-                                            {showCountdowns===true? "Countdown" : ''}
+                                            {showCountdowns === true &&
+                                                "Countdown"}
                                         </div>
                                     </div>
                                 </div>
+                                {KSCSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === 'KSC')} location={location} />)}
 
-                            </div>
-                            {CCSFSSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === 'CCSFS')} location={location} />)}
-
-                        </Card>}
-                        {kscStormToggle === true &&
-                            <Card elevation={10}
-                            style={{
-                                
-                                margin: '10px',
-                                height: '75%',
-                                width: (tabletFlex ? '50%' : '98%'),
-                                flex: 1
-
-                            }}>
-
-                            <h2 onClick={handleKSC} style={{
-                                textAlign: "left",
-                                marginLeft: '5px',
-                                cursor:'pointer',
-                                textDecoration:'underline'
-                            }}>Kennedy Space Center</h2>
-                            <div style={{
-                                display: 'flex',
-                                marginBottom: '5px',
-                            }}>
-                                <div style={{
-                                    width: '40%',
-                                    margin: '0'
-                                }}></div>
-                                <div style={{
-                                    display: 'flex',
-                                    width: '70%',
-                                    justifyContent: 'space-evenly'
-
-                                }}>
-                                    <div style={{
-                                        width: '5%'
-                                    }}></div>
-                                    <div style={{
-                                        width: '22%',
-                                        paddingLeft: '22px',
-                                        fontSize: '75%',
-                                    }}>
-                                        Status
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        fontSize: '75%',
-                                    }}>
-                                        Start Time
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        fontSize: '75%',
-                                    }}>
-                                        End Time
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        marginRight: '2px',
-                                        fontSize: '75%',
-                                    }}>
-                                        {showCountdowns === true &&
-                                            "Countdown"}
-                                    </div>
-                                </div>
-                            </div>
-                            {KSCSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === 'KSC')} location={location} />)}
-
-                        </Card>}
+                            </Card>}
                         {psfbStormToggle === true &&
                             <Card elevation={10}
-                            style={{
-                                
-                                margin: '10px',
-                                height: '75%',
-                                width: (tabletFlex ? '50%' : '98%'),
-                                flex : 1
+                                style={{
 
-                            }}>
-
-                            <h2 onClick={handlePatrick} style={{
-                                textAlign: "left",
-                                marginLeft: '5px',
-                                cursor:'pointer',
-                                textDecoration:'underline'
-                            }}>Patrick Space Force Base</h2>
-                            <div style={{
-                                display: 'flex',
-                                marginBottom: '5px',
-                            }}>
-                                <div style={{
-                                    width: '40%',
-                                    margin: '0'
-                                }}></div>
-                                <div style={{
-                                    display: 'flex',
-                                    width: '70%',
-                                    justifyContent: 'space-evenly'
+                                    margin: '10px',
+                                    height: '75%',
+                                    width: (tabletFlex ? '50%' : '98%'),
+                                    flex: 1
 
                                 }}>
+
+                                <h2 onClick={handlePatrick} style={{
+                                    textAlign: "left",
+                                    marginLeft: '5px',
+                                    cursor: 'pointer',
+                                    textDecoration: 'underline'
+                                }}>Patrick Space Force Base</h2>
+                                <div style={{
+                                    display: 'flex',
+                                    marginBottom: '5px',
+                                }}>
                                     <div style={{
-                                        width: '5%'
+                                        width: '40%',
+                                        margin: '0'
                                     }}></div>
                                     <div style={{
-                                        width: '22%',
-                                        paddingLeft: '22px',
-                                        fontSize: '75%',
+                                        display: 'flex',
+                                        width: '70%',
+                                        justifyContent: 'space-evenly'
+
                                     }}>
-                                        Status
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        fontSize: '75%',
-                                    }}>
-                                        Start Time
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        fontSize: '75%',
-                                    }}>
-                                        End Time
-                                    </div>
-                                    <div style={{
-                                        width: '20%',
-                                        marginRight: '2px',
-                                        fontSize: '75%',
-                                    }}>
-                                        {showCountdowns === true &&
-                                            "Countdown"}
+                                        <div style={{
+                                            width: '5%'
+                                        }}></div>
+                                        <div style={{
+                                            width: '22%',
+                                            paddingLeft: '22px',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            Status
+                                        </div>
+                                        <div style={{
+                                            width: '20%',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            Start Time
+                                        </div>
+                                        <div style={{
+                                            width: '20%',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            End Time
+                                        </div>
+                                        <div style={{
+                                            width: '20%',
+                                            marginRight: '2px',
+                                            fontSize: '100%',
+                                            
+                                        }}>
+                                            {showCountdowns === true &&
+                                                "Countdown"}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {PSFBSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === location)} location={location} />)}
+                                {PSFBSevere.map((location, index) => <SevereStormBar key={index} states={states.filter((item) => item.location === location)} location={location} />)}
 
-                        </Card>}
+                            </Card>}
                     </div>
 
                 </div>
             </div>
-        </Card>
+        </Card >
     )
 }
 

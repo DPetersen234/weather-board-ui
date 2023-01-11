@@ -101,27 +101,27 @@ const SplashWind = ({ states }) => {
                                 }}>
                                     <div style={{
                                         width: (capeCardOnly ? '28%' : '20%'),
-                                        fontSize: '75%'
+                                        fontSize: '100%'
 
                                     }}></div>
                                     <div style={{
                                         width: '20%',
                                         paddingLeft: '22px',
-                                        fontSize: '75%'
+                                        fontSize: '100%'
 
                                     }}>
                                         Status
                                     </div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%'
+                                        fontSize: '100%'
 
                                     }}>
                                         Start Time
                                     </div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%'
+                                        fontSize: '100%'
 
                                     }}>
                                         End Time
@@ -129,7 +129,7 @@ const SplashWind = ({ states }) => {
                                     <div style={{
                                         width: '20%',
                                         marginRight: '2px',
-                                        fontSize: '75%'
+                                        fontSize: '100%'
                                     }}>
                                         {showCountdowns === true &&
                                             "Countdown"}
@@ -170,33 +170,33 @@ const SplashWind = ({ states }) => {
                                 }}>
                                     <div style={{
                                         width: (kscCardOnly ? '28%' : '20%'),
-                                        fontSize: '75%',
+                                        fontSize: '100%',
 
                                     }}></div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%',
+                                        fontSize: '100%',
                                         paddingLeft: '15px'
                                     }}>
                                         Status
                                     </div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%',
+                                        fontSize: '100%',
 
                                     }}>
                                         Start Time
                                     </div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%',
+                                        fontSize: '100%',
 
                                     }}>
                                         End Time
                                     </div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%',
+                                        fontSize: '100%',
                                         marginRight: '2px'
                                     }}>
                                         {showCountdowns === true &&
@@ -239,12 +239,12 @@ const SplashWind = ({ states }) => {
                                 }}>
                                     <div style={{
                                         width: (psfbCardOnly ? '28%' : '20%'),
-                                        fontSize: '75%',
+                                        fontSize: '100%',
 
                                     }}></div>
                                     <div style={{
                                         width: '20%',
-                                        fontSize: '75%',
+                                        fontSize: '100%',
 
                                         paddingLeft:'15px'
                                 }}>
@@ -252,21 +252,21 @@ const SplashWind = ({ states }) => {
                                 </div>
                                 <div style={{
                                     width: '20%',
-                                    fontSize: '75%',
+                                    fontSize: '100%',
 
                                 }}>
                                     Start Time
                                 </div>
                                 <div style={{
                                     width: '20%',
-                                    fontSize: '75%',
+                                    fontSize: '100%',
 
                                 }}>
                                     End Time
                                 </div>
                                 <div style={{
                                     width: '20%',
-                                    fontSize: '75%',
+                                    fontSize: '100%',
 
                                     marginRight:'2px'
                                 }}>
