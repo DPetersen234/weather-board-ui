@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+//functionality for the checkbox forms in the severe storm splash on the Admin Page
+
 const SSViolationCheckbox = ({label, stormViolationValues, setStormViolationValues }) => {
     const [checked, setChecked] = useState(false)
     

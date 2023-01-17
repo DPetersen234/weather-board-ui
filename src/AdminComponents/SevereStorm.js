@@ -1,32 +1,20 @@
 import React from "react";
 import { Card, Grid, Paper, FormGroup, FormControlLabel } from "@mui/material"
 import { useState, useContext } from "react"
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import FormControl from "@mui/material";
-import CheckboxComponent from "./Checkbox";
-import LightningInputText from "../components/splashComponents/LightningInputText";
-import AdminButton from "./Button";
-import InnerLightning from "../components/splashComponents/innerLightning";
-import TypeCheckBox from "./TypeCheckbox";
-import ViolationCheckbox from "./ViolationCheckbox";
 import { AppContext } from "../context/AppContext";
-import SevereStormBar from "../components/splashComponents/severeStormBar";
-import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import SevereStormButton from "./severeAdminComponents/SevereStormButton";
-import SSViolationCheckbox from "./SSViolationCheckbox";
 import StormLocation from "./severeAdminComponents/StormLocations";
 import SevereStormConditions from "./severeAdminComponents/SeverStormConditions";
 import SevereStormInputText from "./severeAdminComponents/SevereStormInputText";
 import InnerStormConditions from "../components/splashComponents/innerStormConditions";
 import { RiThunderstormsLine } from 'react-icons/ri'
 
+//the text field information captured for the severe storm button on the admin page. this information is delivered to the severe
+//button on the admin page to perform the fetch to the /storm endpoint
+
 const SevereStormViolation = () => {
     const stormLocation = ["Cape Canaveral", "Kennedy Space Center", "Patrick Space Force Base"]
     const { storm, showCountdowns } = useContext(AppContext)
-
-    const CCSFSSevere = ['CCSFS']
-    const KSCSevere = ['KSC']
-    const PSFBSevere = ['PSFB']
     const [stormLocationChecked, setStormLocationChecked] = useState([]);
     const [stormConditions, setStormConditions] = useState({})
     const [stormConditionsChecked, setStormConditionsChecked] = useState([]);

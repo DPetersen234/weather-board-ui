@@ -2,7 +2,8 @@ import React from "react";
 
 import { useState } from "react";
 
-
+//The checkbox component present within the lightning splash panel. Used for capturing the information presented to the later fetch
+//call within the lightining button
 
 const CheckboxComponent = ({label, setCheckedValues, checkedValues }) => {
     const [checked, setChecked] = useState(false)

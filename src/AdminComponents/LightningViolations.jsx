@@ -1,18 +1,16 @@
 import React from "react";
 import { Card, Grid, Paper, FormGroup, FormControlLabel } from "@mui/material"
 import { useState, useContext } from "react"
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import FormControl from "@mui/material";
 import CheckboxComponent from "./Checkbox";
 import LightningInputText from "../components/splashComponents/LightningInputText";
 import AdminButton from "./Button";
 import InnerLightning from "../components/splashComponents/innerLightning";
-import TypeCheckBox from "./TypeCheckbox";
 import ViolationCheckbox from "./ViolationCheckbox";
-import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { AppContext } from "../context/AppContext";
-import LightningLocationBox from "./LightningLocationBox";
 import { BsLightning } from 'react-icons/bs'
+
+//provides the violation types for lightning within the lightning splash panel. this information is later sent in the fetch
+// made by the lightning button in the lightning splash panel to the /lightning endpoint of the server.
 
 const LightningViolations = () => {
     const currentLightning = ["Cape Central", "CX-20/16/LZ", "CX-36/46", "CX-37/ASOC/PPF", "CX-40/41/SPOC", "Port", "KSC Industrial", "LC-39", "SLF", "Astrotech", "CIDCO Park", "Patrick SFB"]

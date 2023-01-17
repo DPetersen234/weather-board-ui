@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+//functionality for the checkbox of violation types within the lightning splash of the Admin page
+
 const TypeCheckbox = ({ label, setViolationValues, violationValues }) => {
     const [checked, setChecked] = useState(false)
 

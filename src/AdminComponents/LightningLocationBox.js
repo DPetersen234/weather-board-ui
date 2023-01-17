@@ -1,16 +1,13 @@
 import React from "react";
-import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import { Card, Grid, Paper, FormGroup, FormControlLabel } from "@mui/material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -24,6 +21,10 @@ const MenuProps = {
 };
 
 const lightningLocations = ["Cape Central", "CX-20/16/LZ", "CX-36/46", "CX-37/ASOC/PPF", "CX-40/41/SPOC", "Port", "KSC Industrial", "LC-39", "SLF", "Astrotech", "CIDCO Park", "Patrick SFB"]
+
+
+//provides all location names to the lightning splash panel. These names are used to provide the location information to the 
+//lightning button fetch call to the /lightning endpoint of the server.
 
 export default function LightningLocationBox({label, setCheckedValues, checkedValues }) {
     const { lightningLocation, setLightningLocation } = useContext(AppContext);

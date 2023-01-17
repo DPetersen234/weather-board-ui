@@ -2,25 +2,21 @@ import React from "react";
 import { Card, Grid, Paper, FormGroup, FormControlLabel } from "@mui/material";
 import { useState, useContext } from "react";
 import InnerWind from "../components/splashComponents/innerWInd";
-import styled from 'styled-components';
-import AirIcon from '@mui/icons-material/Air';
-import FormControl from "@mui/material";
-import CheckboxComponent from "./Checkbox";
-import { Typography } from "@mui/material";
 import { AppContext } from "../context/AppContext";
 import WindInputTextView from "../components/splashComponents/windInputText";
 import WindButton from "./windAdminComponents/windButton";
 import WindCheckedLocationBox from './WindCheckedLocationBox';
 import { RiWindyLine } from 'react-icons/ri'
 
+//provides the functionality of the different wind WWA criteria presented in the wind splash on the Admin Page
+
 const WindViolationsView = () => {
 
-    const { showCountdowns, lightning, wind, windTime, setWindTime, windTime2, setWindTime2, windStartTime, setWindStartTime, windEndTime, setWindEndTime } = useContext(AppContext);
+    const { showCountdowns, wind} = useContext(AppContext);
     const CCSFScategories = ["18 kt steady-state", "22 kt steady-state", "Strong Winds", "Damaging Winds"]
     const KSCcategories = ["18 kt steady-state", "Strong Winds", "Damaging Winds"]
     const PSFBcategories = ["25 kt observed", "Strong Winds", "Damaging Winds"]
     const windLocations = ['Cape Canaveral Space Force Station', 'Kennedy Space Center', 'Patrick Space Force Base']
-    const windViolations = ['18 kt Steady State Advisory', '22 kt Steady State Advisory', '25 kt Steady State Advisory', 'Strong Wind Warning', 'Damaging Wind Warning']
     const [checked, setChecked] = useState(false);
     const [windCheckedLocationValues, setWindCheckedLocationValues] = useState(false);
 

@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { Card, Paper, useMediaQuery } from '@mui/material'
 import { AppContext } from '../../context/AppContext'
 
-import {Divider} from '@mui/material'
+//provides the functionality for storm violation location preferences for the individual user
 
 const StormProfile = ()=> {
     const {setStormSplashToggle, stormSplashToggle, capeStormToggle, setCapeStormToggle, kscStormToggle, setKscStormToggle, psfbStormToggle, setPsfbStormToggle} = useContext(AppContext)

@@ -2,8 +2,7 @@ import React, {useContext} from 'react'
 import { Card, Paper, useMediaQuery } from '@mui/material'
 import { AppContext } from '../../context/AppContext'
 
-
-import {Divider} from '@mui/material'
+//provides the functionality for user preferences for wind violation locations
 
 const WindProfile = () => {
 const flexBasis = useMediaQuery('(min-width: 700px)')

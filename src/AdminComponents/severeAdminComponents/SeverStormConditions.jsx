@@ -1,9 +1,8 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { useState } from "react"
 
 
+//This is the functionality of the text fields present within the severe storm splash on the Admin page
 const SevereStormConditions = ({ severeType, setSevereType, stormConditions, setStormConditions, setStormConditionsChecked, stormConditionsChecked }) => {
     const expectedConditions = ["Expected Wind", "Expected Hail", "Direction"]
     const expectedCategory = ["Watch", "Warning", "Cancel"]

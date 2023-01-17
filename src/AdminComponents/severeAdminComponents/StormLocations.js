@@ -1,5 +1,6 @@
 
-import { Card, Grid, Paper, FormGroup, FormControlLabel } from "@mui/material"
+//This function provides the locations for the Storm splash panel on the Admin Page and sets the location 
+//for when the fetch is called in the severe storm button
 const StormLocation = ({ location, setStormLocationChecked, stormLocationChecked }) => {
 
     const handleCheck = (e) => {

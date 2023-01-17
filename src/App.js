@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
 import ProfilePage from './Pages/ProfilePage';
-import LeftBar from './components/LeftBar';
 import AdminPage from './Pages/AdminPage';
 import AreaView from './components/AreaView';
 import UserPage from './Pages/UserPage';
@@ -17,9 +15,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import TestHome from './test components/testhome';
 import MobileArea from './test components/location components/mobilearea';
 import MobileSiteView from './test components/location components/mobilesite';
-import TabletView from './Tablet/tabletView';
-import TabletSiteView from './Tablet/tabletSite';
-import TabletArea from './Tablet/TabletArea';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { colors } from '@mui/material';
@@ -432,8 +427,6 @@ const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeTex
         <CssBaseline/>
         <AppContext.Provider value={passContext}>
           <Router>
-            {
-              // windowSize.innerWidth > 1200 ? (
                 <Routes>
                   <Route path='/' element={flexBasis? <UserPage /> : <TestHome/>} />
                   <Route path='/admin' element={<AdminPage />} />
@@ -443,32 +436,6 @@ const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeTex
                   <Route path='/sign_up' element={<SignUp />} />
                   <Route path='profile' element={<ProfilePage/>} />
                 </Routes>
-              // ) : (
-              //   windowSize.innerWidth > 500 ? (
-              //     <Routes>
-              //       <Route path='/' element={<TabletView />} />
-              //       <Route path='/admin' element={<AdminPage />} />
-              //       <Route path='/area' element={<TabletArea />} />
-              //       <Route path='/site' element={<TabletSiteView />} />
-              //       <Route path='/sign_in' element={<SignIn />} />
-              //       <Route path='/sign_up' element={<SignUp />} />
-              //       <Route path='/profile' element={<ProfilePage/>}/>
-              //     </Routes>
-              //   ) :
-              //     (
-
-              //       <Routes>
-              //         <Route path='/' element={<TestHome />} />
-              //         <Route path='/admin' element={<AdminPage />} />
-              //         <Route path='/area' element={<MobileArea />} />
-              //         <Route path='/site' element={<MobileSiteView />} />
-              //         <Route path='/sign_in' element={<SignIn />} />
-              //         <Route path='/sign_up' element={<SignUp />} />
-              //         <Route path='/profile' element={<ProfilePage/>}/>
-              //       </Routes>
-              //     )
-              // )
-            }
           </Router>
         </AppContext.Provider>
         </ThemeProvider>

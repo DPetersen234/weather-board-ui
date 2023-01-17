@@ -3,6 +3,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import React, { useContext, useState } from 'react';
 
+//the purpose of this function is to capture information of new storm WWA violations to be fed into the future fetch call 
+//delivered to the Severe storm button
+
 export default function SevereStormInputText({severeStormTime, setSevereStormTime, severeStormTime2, setSevereStormTime2, severeStormStartTime, setSevereStormStartTime, severeStormEndTime, setSevereStormEndTime}) {
 
   

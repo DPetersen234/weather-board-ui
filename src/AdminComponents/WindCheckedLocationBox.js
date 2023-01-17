@@ -4,13 +4,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
 import { useState, useContext } from "react";
 import CCWind from "./windAdminComponents/CCWind";
 import KSCWind from "./windAdminComponents/KSCWind";
 import PSFBWind from "./windAdminComponents/PSFBWind";
 import { AppContext } from "../context/AppContext";
 import { Grid } from "@mui/material";
+
+//functionality of the location checkboxes in the wind splash panel of the Admin Page
 
 const WindCheckedLocationBox = ({ label, setWindCheckedLocationValues, windCheckedLocationValues }) => {
     const { setCCcheckedValues, setKSCCheckedValues, setPSFBCheckedValues } = useContext(AppContext);

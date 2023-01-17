@@ -10,6 +10,7 @@ export default function LightningInputText({lightningTime, lightningTime2, setli
   
   const handleChange = (event) => {
     setlightningTime(event.target.value);
+
   };
 
   const handleChange2 = (event) => {

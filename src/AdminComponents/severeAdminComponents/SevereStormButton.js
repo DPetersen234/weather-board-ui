@@ -26,7 +26,9 @@ color: white;
   font-type: poppins;
 }
 `
-
+//Functionality of the button on the Admin page within the Severe storm section
+//Performs a fetch call to the /storm endpoint and patches the information to the server to represent the current 
+//storm weather violations
 const SevereStormButton = ({ severeType, locations, stormConditions, severeStormTime2, severeStormTime, severeStormStartDate, severeStormEndDate }) => {
   const {setLoading, toggle, setToggle} = useContext(AppContext);
   const url = 'https://weather-board.onrender.com'

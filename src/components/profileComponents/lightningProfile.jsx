@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { Card, Paper, useMediaQuery } from '@mui/material'
 import { AppContext } from '../../context/AppContext'
 
+//provides the functionality of the lightning location preferences for the user in the profile page
+
 const LightningProfile = () => {
     const flexBasis = useMediaQuery('(min-width: 700px)')
     const {

@@ -26,6 +26,8 @@ color: white;
   font-family: Kanit;
 }
 `
+//Functionality for the button within the Wind Splash that creates a fetch call to the database which patches the wind violation
+//information presented
 
 const WindButton = () => {
 

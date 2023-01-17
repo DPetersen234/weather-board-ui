@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+//functionality of the checkboxes for wind violation criteria in the wind splash panel of the Admin Page
+
 const CheckboxComponent = ({label, setwindCheckedLocationValues, windCheckedLocationValues }) => {
     const [checked, setChecked] = useState(false)
     

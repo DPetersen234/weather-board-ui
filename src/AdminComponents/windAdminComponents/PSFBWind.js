@@ -4,7 +4,7 @@ import { AppContext } from "../../context/AppContext";
 import { TextField } from "@mui/material"
 
 
-
+//Provides the types of WWA violations in wind conditions for PSFB within the wind splash panel of the Admin Page
 
 const PSFBWind = () => {
     const { PSFBWindProperties, setPSFBWindProperties, PSFBCheckedValues, setPSFBCheckedValues } = useContext(AppContext);

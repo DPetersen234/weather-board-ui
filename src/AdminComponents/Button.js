@@ -28,6 +28,9 @@ color: white;
 `
 const url = 'https://weather-board.onrender.com'
 
+//Functionality for the button within the Lightning Splash panel of the Admin page. It delivers a fetch call to the 
+// /lightning endpoint to update all present Lightning WWA violations for all locations
+
 const AdminButton = ({ locations, violations, startTime, endTime, startDate, endDate }) => {
   const { toggle, setToggle, setLoading } = useContext(AppContext);
 
@@ -87,6 +90,7 @@ const AdminButton = ({ locations, violations, startTime, endTime, startDate, end
       setLoading(0)
 
     }
+    
   }
 
   return (

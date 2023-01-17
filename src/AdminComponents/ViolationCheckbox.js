@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+//functionality of the violation checkboxes present within the lightning splash panel of the Admin Page
+
 const ViolationCheckbox = ({ label, setViolationValues, violationValues }) => {
 
     const [checked, setChecked] = useState(false)

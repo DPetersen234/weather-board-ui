@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import { Card, Paper, useMediaQuery, Button, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
-import { GiConsoleController } from 'react-icons/gi'
 
-//SEE NOTES AT BOTTOM OF FILE FOR CONTINUATION AFTER HOLIDAY BREAK
+//functionality of the general profile settings. These settings include the accessibilty and theming settings. Also controls the
+//functionality of the save preferences button to perform a fetch call to the /profile endpoint and patch the profile of the user
+
 const GeneralProfileSettings = () => {
     const flexBasis = useMediaQuery('(min-width: 700px)')
     const {
@@ -24,22 +25,8 @@ const GeneralProfileSettings = () => {
         capeStormToggle,
         kscStormToggle,
         psfbStormToggle,
-        setUserHold,
-        setCCSFSLightning,
-        setKSCLightning,
         SetTheming,
         setMode,
-        setOtherLightning,
-        setCapeLightningToggle,
-        setKscLightningToggle,
-        setOtherLightningToggle,
-        setPsfbLightningToggle,
-        setCapeWindToggle,
-        setKscWindToggle,
-        setPsfbWindToggle,
-        setCapeStormToggle,
-        setKscStormToggle,
-        setPsfbStormToggle,
         protTheme,
         duetTheme,
         tritTheme,
@@ -52,7 +39,6 @@ const GeneralProfileSettings = () => {
         setModeText,
         showCountdowns,
         setShowCountdowns,
-        theming,
         stormSplashToggle,
         windSplashToggle,
         setThemeToggle
@@ -83,24 +69,6 @@ const GeneralProfileSettings = () => {
 
         }
     }
-
-    // const profileSetter = () =>{
-    //   setCCSFSLightning(profileObj.capeLightning)
-    //   setKSCLightning(profileObj.kscLightning)
-    //   setOtherLightning(profileObj.otherLightning)
-    //   setCapeLightningToggle(profileObj.CCSFSLightningToggle)
-    //   setKscLightningToggle(profileObj.KSCLightningToggle)
-    //   setOtherLightningToggle(profileObj.OtherLightningToggle)
-    //   setPsfbLightningToggle(profileObj.psfbLightningToggle)
-    //   setCapeWindToggle(profileObj.capeWind)
-    //   setKscWindToggle(profileObj.kscWind)
-    //   setPsfbWindToggle(profileObj.psfbWind)
-    //   setCapeStormToggle(profileObj.capeStorm)
-    //   setKscStormToggle(profileObj.kscStorm)
-    //   setPsfbStormToggle(profileObj.psfbStorm)
-    //   SetTheming(profileObj.mode === 'dark' ? darkTheme : lightTheme)
-    //   setMode(profileObj.accessibility === 'default' ? defaultTheme : profileObj.accessibility === 'protanopia' ? protTheme : profileObj.accessibility=== 'tritanopia' ? tritTheme : duetTheme)
-    // }
 
     const handleSubmit = () => {
         console.log('USERHOLD', userHold)
@@ -291,12 +259,3 @@ const GeneralProfileSettings = () => {
 }
 
 export default GeneralProfileSettings
-
-//Notes for next time:
-//import context for the different toggles
-//create handle functions for the setting (?--tentative as they may not be necessary)
-//add more functionality to the handleSubmit function to create the desired fetch (PATCH) to the profiles endpoint
-//In app.js=> create a useEffect/fetch to the profiles endpoint that listens to a change in the profileHold object (will use the current browser settings as default), this
-// fetch will then set the ProfileHold object so that the application refreshes to the new settings
-//set up ternary statements that listen to the userHold on signIn, but if changes are made to the profileHold it will override the userHold settings, could also 
-// possible just fetch the userHold again, will have to see what has the better/ more elegant outcome

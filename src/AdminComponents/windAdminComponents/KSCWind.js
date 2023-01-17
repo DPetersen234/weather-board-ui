@@ -3,6 +3,8 @@ import { AppContext } from "../../context/AppContext";
 import { useState, useEffect, useContext } from "react"
 import { TextField } from "@mui/material"
 
+//Provides the types of WWA violations in wind conditions for KSC within the wind splash panel of the Admin Page
+
 const KSCWind = () => {
 
     const { KSCWindProperties, setKSCWindProperties, KSCCheckedValues, setKSCCheckedValues } = useContext(AppContext);

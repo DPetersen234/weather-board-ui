@@ -2,7 +2,7 @@ import { TextField } from "@mui/material"
 import { useState, useEffect, useContext } from "react"
 import { AppContext } from "../../context/AppContext";
 
-
+//Provides the types of WWA violations in wind conditions for CCSFS within the wind splash panel of the Admin Page
 const CCWind = () => {
 
 
