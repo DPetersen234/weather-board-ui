@@ -13,7 +13,7 @@ import { BsLightning } from 'react-icons/bs'
 // made by the lightning button in the lightning splash panel to the /lightning endpoint of the server.
 
 const LightningViolations = () => {
-    const currentLightning = ["Cape Central", "CX-20/16/LZ", "CX-36/46", "CX-37/ASOC/PPF", "CX-40/41/SPOC", "Port", "KSC Industrial", "LC-39", "SLF", "Astrotech", "CIDCO Park", "Patrick SFB"]
+    const currentLightning = ["Cape Central", "CX-20-16-LZ", "CX-36-46", "CX-37-ASOC-PPF", "CX-40-41-SPOC", "Port", "KSC Industrial", "LC-39", "SLF", "Astrotech", "CIDCO Park", "Patrick SFB"]
 
     const Phases = ['Phase 1', 'Phase 2', 'Cancel']
     const [checked, setChecked] = useState(false);

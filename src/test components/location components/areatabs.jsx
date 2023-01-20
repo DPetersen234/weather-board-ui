@@ -57,10 +57,10 @@ function a11yProps(index) {
   };
 }
 
-export default function AreaTabs({image}) {
+export default function AreaTabs({image, area}) {
   const [value, setValue] = React.useState(0);
-  const {area} = useContext(AppContext)
-
+  
+  console.log('AreaTabs', image)
   const tabStyle= {
     color:'text.primary',
     bgcolor:'background.default',
@@ -76,7 +76,7 @@ export default function AreaTabs({image}) {
 if(area[0] !=='CIDCO Park'){
   return (
     <Box sx={{ width: '100%'}}>
-      <AreaImgContainer/>
+      <AreaImgContainer image={image} area={area}/>
       <Box sx={{ borderBottom: 1, borderColor: 'divider', display:'flex', justifyContent:'space-evenly' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab sx={tabStyle} label="Lightning" {...a11yProps(0)} />
@@ -126,7 +126,7 @@ if(area[0] !=='CIDCO Park'){
 }else{
     return(
         <Box sx={{ width: '100%' }}>
-          <AreaImgContainer/>
+          <AreaImgContainer image={image} area={area}/>
         <Box sx={{ borderBottom: 1, borderColor: 'divider', display:'flex', justifyContent:'space-evenly' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab label="Lightning" {...a11yProps(0)} />

@@ -17,25 +17,19 @@ const SplashWind = ({ states }) => {
     const navigate = useNavigate();
     
     const handleCCSFS = () => {
-        setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
-        setImagePath('./images/CCSFS.jpg')
-        setCookieData({ area: area, site: site })
-        navigate('/area')
+        
+        navigate('/area/CCSFS')
     }
 
     const handleKSC = () => {
-        setArea(['KSC Industrial', 'LC-39', 'SLF'])
-        setImagePath('./images/KSCArea.jpg')
-        setCookieData({ area: area, site: site })
-        navigate('/area')
+        
+        navigate('/area/KSC')
     }
 
 
     const handlePatrick = () => {
-        setArea(['Patrick SFB'])
-        setImagePath('./images/psfb.PNG')
-        setCookieData({ area: area, site: site })
-        navigate('/area')
+        
+        navigate('/area/PSFB')
     }
 
     const tabletFlex = useMediaQuery('(min-width: 1200px)')

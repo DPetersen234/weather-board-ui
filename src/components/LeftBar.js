@@ -78,7 +78,7 @@ export default function LeftBar() {
     }
 
     const handleCCSFS = () => {
-        setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
+        setArea(['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'])
         setImagePath('./images/CCSFS.jpg')
         setCookieData({ area: area, site: site })
         navigate('/area')

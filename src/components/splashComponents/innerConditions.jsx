@@ -19,10 +19,10 @@ const InnerConditions = ({ item, location }) => {
             navigate('/area')
         }else {
             (location === 'KSC Industrial' || location === 'LC-39' || location === 'SLF') ? setArea(['KSC Industrial', 'LC-39', 'SLF']) :
-            (location === 'Cape Central' || location ===  'Port' || location ===  'CX-20/16/LZ' || location ===  'CX-36/46' || location ===  'CX-37/ASOC/PPF' || location ===  'CX-40/41/SPOC') ? setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC']) :
+            (location === 'Cape Central' || location ===  'Port' || location ===  'CX-20-16-LZ' || location ===  'CX-36-46' || location ===  'CX-37-ASOC-PPF' || location ===  'CX-40-41-SPOC') ? setArea(['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC']) :
              setArea(['CIDCO Park', 'Astrotech'])
             setSite(location)
-            navigate('/site')
+            navigate(`/site/${location}`)
             
         } 
     }

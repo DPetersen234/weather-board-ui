@@ -26,7 +26,7 @@ const AreaRing =({location, item}) =>{
         }
     },
     {
-        location:'CX-20/16/LZ',
+        location:'CX-20-16-LZ',
         style:{
             position:'relative',
             bottom:'84.6%',
@@ -38,7 +38,7 @@ const AreaRing =({location, item}) =>{
         }
     },
     {
-        location:'CX-36/46',
+        location:'CX-36-46',
         style:{
             position:'relative',
             bottom:'83.6%',
@@ -50,7 +50,7 @@ const AreaRing =({location, item}) =>{
         }
     },
     {
-        location:'CX-37/ASOC/PPF',
+        location:'CX-37-ASOC-PPF',
         style:{
             position:'relative',
             bottom:'120.4%',
@@ -62,7 +62,7 @@ const AreaRing =({location, item}) =>{
         }
     },
     {
-        location:'CX-40/41/SPOC',
+        location:'CX-40-41-SPOC',
         style:{
             position:'relative',
             bottom:'146.4%',

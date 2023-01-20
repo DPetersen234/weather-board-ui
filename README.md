@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Warning Watch Advisory eBOARD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A interactive web application that gives you access to the current weather on any device
 
-## Available Scripts
+## WHY?
 
-In the project directory, you can run:
+The current electronic weather warning status board currently runs on a laptop that is broadcasted on a rotary. The goal is to develop a responsive web application to replace the current outdated tool and can provide desired status data directly to launch providers. Looking for supra coders to contribute by designing and building new applications.
 
-### `npm start`
+At a base level, operators (admin) should be able to enter weather statuses indicating the conditions at launch sites (currently, wind and lightning), while the user needs to be able to view the conditions at launch sites. (Think: List of values displayed via table on the screen, but with dynamism.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- MUI Library
 
-### `npm test`
+## What Our Web Application Does
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- It is accessible from any device
+- It allows admins to make real time updates to weather status that end users have instant access to.
+- Users have the ability to customize what is displayed on the screen
+- There are dark and light mode features and also the common accessiblity modes for people don't see certain colors too well.
 
-### `npm run build`
+## Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+https://youtu.be/jNspD6EoXCo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run this project install locally using npm
 
-### `npm run eject`
+```bash
+  npm install
+  npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## To Build Docker Container for Server
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Run in Terminal: docker build -t nameOfChoice
+- Spin up Container: docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 \
+  -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Connect to Container You Just Created
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Type docker ps -a : to view the images running
+- docker exec -it <PSQL-Container-ID(first 3)> bash
 
-## Learn More
+### Access Container/Create Database
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- psql -U _postgres_
+- CREATE DATABASE weather;
+- \c weather
+- in VSCODE terminal: npx knex migrate:latest
+- npx knex seed:run

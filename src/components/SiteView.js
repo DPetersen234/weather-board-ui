@@ -16,47 +16,67 @@ import { RiWindyLine } from 'react-icons/ri'
 import { RiThunderstormsLine } from 'react-icons/ri'
 import AreaSevereStorms from './splashComponents/areaSevereStorms'
 import SiteRing from './SiteRing';
+import { useParams, useNavigate } from 'react-router-dom';
+import {Alert} from '@mui/material';
+import {AlertTitle }from '@mui/material';
+import {Button} from '@mui/material';
 
 const cookies = new Cookies()
 
 const SiteView = () => {
-
-
-    
+    const navigate = useNavigate()
+    const params = useParams()
+    const site = params.id
     const imageArray=[
-        {location:'Astrotech', imgsrc:'./images/astrotech.PNG'},
-        {location:'Cape Central', imgsrc:'./images/cape central.PNG'},
-        {location:'CIDCO Park', imgsrc:'./images/cidco park.PNG'},
-        {location:'CX-20/16/LZ', imgsrc:'./images/cx-20-16.PNG'},
-        {location:'CX-36/46', imgsrc:'./images/cx-36-46.PNG'},
-        {location:'CX-37/ASOC/PPF', imgsrc:'./images/cx-37-asoc.PNG'},
-        {location:'CX-40/41/SPOC', imgsrc:'./images/cx-40-41.PNG'},
-        {location:'KSC Industrial', imgsrc:'./images/KSC Industrial.PNG'},
-        {location:'LC-39', imgsrc:'./images/LC-39.PNG'},
-        {location:'Port', imgsrc:'./images/port.PNG'},
-        {location:'SLF', imgsrc:'./images/SLF.PNG'}
+        {location:'Astrotech', imgsrc:'../images/astrotech.PNG'},
+        {location:'Cape Central', imgsrc:'../images/cape central.PNG'},
+        {location:'CIDCO Park', imgsrc:'../images/cidco park.PNG'},
+        {location:'CX-20-16-LZ', imgsrc:'../images/cx-20-16.PNG'},
+        {location:'CX-36-46', imgsrc:'../images/cx-36-46.PNG'},
+        {location:'CX-37-ASOC-PPF', imgsrc:'../images/cx-37-asoc.PNG'},
+        {location:'CX-40-41-SPOC', imgsrc:'../images/cx-40-41.PNG'},
+        {location:'KSC Industrial', imgsrc:'../images/KSC Industrial.PNG'},
+        {location:'LC-39', imgsrc:'../images/LC-39.PNG'},
+        {location: 'Port', imgsrc:'../images/port.PNG'},
+        {location:'SLF', imgsrc:'../images/SLF.PNG'}
         
     ]
-    
-    const { lightning, wind, storm, area, site, setSite, showCountdowns, themeToggle  } = useContext(AppContext)
-    
+    const findImage = () => {
+       let siteImage = imageArray.filter((item)=> item.location === site)
+       console.log('SI',siteImage)
+       return siteImage[0].imgsrc
+    }
+    const { lightning, wind, storm, area, showCountdowns, themeToggle  } = useContext(AppContext)
     
     if (site!==[]){
         cookies.set('site', site, {path:'/'})
         cookies.set('area', area, {path:'/'})
     }
+    
     const flexBasis = useMediaQuery('(min-width: 1200px)')
+    
 
-
-
+    if (site ==='Astrotech' ||
+        site === 'Cape Central' ||
+        site === 'CIDCO Park' ||
+        site === 'CX-20-16-LZ' ||
+        site === 'CX-36-46' ||
+        site === 'CX-37-ASOC-PPF'||
+        site === 'CX-40-41-SPOC' ||
+        site === 'KSC Industrial' ||
+        site === 'LC-39' ||
+        site === 'Port' ||
+        site === 'SLF') {
+            
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'row',height:'100%',paddingTop:(flexBasis ? '3%': '8%') ,bgcolor:(themeToggle === false ? 'text.primary' : 'background.default') }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row',height:'115vh',paddingTop:(flexBasis ? '3%': '8%') ,bgcolor:(themeToggle === false ? 'text.primary' : 'background.default') }}>
         <LeftBar/>
-            <Card sx={{height: '20%', width: '90%', marginLeft: '7.5%', marginRight: '5%', marginTop:'2%' }}>
-                <Card elevation={10} sx={{position:'relative', display: 'flex', height: '20%', padding:'1%', margin: '10px', justifyContent: 'center' }}>
-                    <Box >
-                    <SiteImage images={imageArray.filter((item)=>item.location===site)} />
+            <Card sx={{ height: '95%', width: '90%', marginLeft: '7.5%', marginRight: '5%', marginTop:'1%' }}>
+                <Card elevation={10} sx={{position:'relative', display: 'flex', height: 'auto', padding:'1%', margin: '10px', justifyContent: 'center' }}>
+                    <Box>
+                    <SiteImage images={imageArray.filter((item)=> item.location === site)} />
+                    
                     <SiteRing item={lightning.filter((item) => item.location === site)} site={site}/>
                     </Box>
                 </Card>
@@ -253,7 +273,7 @@ const SiteView = () => {
                 }
 
                 {area[0] !== 'CIDCO Park' &&
-                <Card elevation={10} sx={{ margin: '10px' }}><h4><RiThunderstormsLine/> Severe Storms</h4>
+                <Card elevation={10} sx={{ margin: '10px', height:'auto' }}><h4><RiThunderstormsLine/> Severe Storms</h4>
                     <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor:'primary.main' }}>
                     <Card style={{
                             width:'100%',
@@ -343,5 +363,13 @@ const SiteView = () => {
         </Box>
     )
 }
+ else {
+    return(
+    <Alert severity ='error'>
+        <AlertTitle>Error: Domain not found!</AlertTitle>
+        <Button sx={{bgcolor:'black'}} onClick = {()=> navigate('/')}>Return to Home Page</Button>
+    </Alert>
+)
 
+}}
 export default SiteView

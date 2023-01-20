@@ -34,32 +34,34 @@ export default function NavBarMenu() {
   };
 
   const handleCCSFS = () => {
-    setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
-    setImagePath('./images/CCSFS.jpg')
+    setArea(['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'])
+    setImagePath('../images/CCSFS.jpg')
     setCookieData({ area: area, site: site })
-    navigate('/area')
+    navigate('/area/CCSFS')
 }
 
 const handleKSC = () => {
     setArea(['KSC Industrial', 'LC-39', 'SLF'])
-    setImagePath('./images/KSCArea.jpg')
+    setImagePath('../images/KSCArea.jpg')
     setCookieData({ area: area, site: site })
-    navigate('/area')
+    navigate('/area/KSC')
 }
 
 const handleOther = () => {
     setArea(['CIDCO Park', 'Astrotech'])
-    setImagePath('./images/Other Area.jpg')
+    setImagePath('../images/Other Area.jpg')
     setCookieData({ area: area, site: site })
-    navigate('/area')
+    navigate('/area/Other')
 }
 
 const handlePatrick = () => {
     setArea(['Patrick SFB'])
-    setImagePath('./images/psfb.PNG')
+    setImagePath('../images/psfb.PNG')
     setCookieData({ area: area, site: site })
-    navigate('/area')
+    navigate('/area/PSFB')
 }
+
+
 
   const buttonSX = {
     width: 'auto',
@@ -135,16 +137,16 @@ const siteButtonSX = {
                                 Cape Canaveral SFS
                             </ListItemButton>
                             <Divider sx={{ bgcolor: 'white' }} />
-                            {['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'].map((text, index) => (
+                            {['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'].map((text, index) => (
                                 <ListItem key={text} disablePadding >
                                     <ListItemButton
                                         sx={siteButtonSX}
                                         
                                         onClick={() => {
                                             setSite(text)
-                                            setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
+                                            setArea(['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'])
                                             setCookieData({ area: area, site: site })
-                                            navigate('/site')
+                                            navigate(`/site/${text}`)
                                         }}
                                     >{text}
                                     </ListItemButton>
@@ -163,7 +165,7 @@ const siteButtonSX = {
                                             setSite(text)
                                             setArea(['KSC Industrial', 'LC-39', 'SLF'])
                                             setCookieData({ area: area, site: site })
-                                            navigate('/site')
+                                            navigate(`/site/${text}`)
                                         }}>
                                         {text}
                                     </ListItemButton>
@@ -186,7 +188,7 @@ const siteButtonSX = {
                                             setSite(text)
                                             setArea(['CIDCO Park', 'Astrotech'])
                                             setCookieData({ area: area, site: site })
-                                            navigate('/site')
+                                            navigate(`/site/${text}`)
                                         }}>
                                         {text}
                                     </ListItemButton>

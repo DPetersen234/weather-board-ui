@@ -15,321 +15,341 @@ import { RiWindyLine } from 'react-icons/ri'
 import { RiThunderstormsLine } from 'react-icons/ri'
 import AreaSevereStorms from './splashComponents/areaSevereStorms'
 import AreaRing from './AreaRing'
+import { useParams } from 'react-router-dom';
 
 const cookies = new Cookies()
 
 const AreaView = () => {
-    
-    const { lightning, storm, wind, area, setArea, imagePath, setImagePath, showCountdowns, themeToggle } = useContext(AppContext)
-    
-   if(area!==[]){ 
-    cookies.set('area', area, {path:'/'})
-    cookies.set('imagePath', imagePath, {path:'/'})
-    }
-    
+
+    const { lightning, storm, wind, showCountdowns, themeToggle, setCookieData, site } = useContext(AppContext)
+    const params = useParams()
+    const id = params.id
+    // if (area !== []) {
+    //     cookies.set('area', area, { path: '/' })
+    //     cookies.set('imagePath', imagePath, { path: '/' })
+    // }
+    const area = (id === 'CCSFS' ? ['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC']:
+                  id === 'KSC' ? ['KSC Industrial', 'LC-39', 'SLF'] :
+                  id === 'Other' ? ['CIDCO Park', 'Astrotech'] :
+                  ['Patrick SFB']
+    )
+
+    const imageArray = [
+        {location:'CCSFS', image:'../images/CCSFS.jpg'},
+        {location:'KSC', image:'../images/KSCArea.jpg'},
+        {location:'Other', image:'../images/Other Area.jpg'},
+        {location:'PSFB', image:'../images/psfb.PNG'}
+    ]
+
+    const findImage = () => {
+        let areaImage = imageArray.filter((item)=> item.location === id)
+        
+        return areaImage[0].image
+     }
+
     const flexBasis = useMediaQuery('(min-width: 1200px)')
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'row',paddingTop:(flexBasis ? '3%' : '8%'), bgcolor: (themeToggle === false ? 'text.primary': 'background.default') }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', paddingTop: (flexBasis ? '3%' : '8%'), bgcolor: (themeToggle === false ? 'text.primary' : 'background.default') }}>
             <LeftBar />
-            <Card sx={{ height: '20%', width: '100%', marginLeft: '7.5%', marginRight: '5%',}}>
-                <Card elevation={10}  sx={{position:'relative', display: 'flex', height: '20%', margin: '10px', justifyContent: 'center', marginTop:'5%',  }}>
+            <Card sx={{ height: '20%', width: '100%', marginLeft: '7.5%', marginRight: '5%', }}>
+                <Card elevation={10} sx={{ position: 'relative', display: 'flex', height: '20%', margin: '10px', justifyContent: 'center', marginTop: '5%', }}>
                     <Box >
-                    <img src={imagePath} alt="placehoder"
-                        style={{
-                            width: 'auto',
-                            maxHeight: '800px',
-                            height: 'auto',
-                            margin: '10px'
-                        }}
-                    />
-                    {area.map((location)=>{
-                        return(
-                            <AreaRing location={location} item={lightning.filter((item) => item.location === location)}/>
-                        )
-                    })}
+                        <img src={findImage()} alt="placehoder"
+                            style={{
+                                width: 'auto',
+                                maxHeight: '800px',
+                                height: 'auto',
+                                margin: '10px'
+                            }}
+                        />
+                        {area.map((location) => {
+                            return (
+                                <AreaRing location={location} item={lightning.filter((item) => item.location === location)} />
+                            )
+                        })}
                     </Box>
                 </Card>
-                <Card elevation={10} sx={{ margin: '10px' }}><h4><BsLightning/> Lightning</h4>
-                    <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor:'primary.main'}}>
-                        <Card  sx={{
-                            width:'100%',
-                            height:'20%',
+                <Card elevation={10} sx={{ margin: '10px' }}><h4><BsLightning /> Lightning</h4>
+                    <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor: 'primary.main' }}>
+                        <Card sx={{
+                            width: '100%',
+                            height: '20%',
                             display: 'flex',
-                            flexDirection:'row',
-                            marginBottom:'5px',
-                            bgcolor:'primary.secondary'
-                            
+                            flexDirection: 'row',
+                            marginBottom: '5px',
+                            bgcolor: 'primary.secondary'
+
                         }}>
                             <div style={{
-                                width:'45%',
-                                margin:'0'
-                                
-                            }}/>
+                                width: '45%',
+                                margin: '0'
+
+                            }} />
+                            <div style={{
+                                width: '55%',
+                                display: 'flex',
+                                flexDirection: 'space-evenly'
+
+                            }}>
                                 <div style={{
-                                    width:'55%',
-                                    display:'flex',
-                                    flexDirection:'space-evenly'
-                                    
-                                }}>
-                                    <div style={{
-                                        width:'21%',
-                                        
-                                        textAlign:'left',
-                                        paddingLeft:'5%'
-                                    }}>Status</div>
-                                    <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
-                                    }}>Start Time</div>
-                                    <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
-                                    }}>End Time</div>
-                                    <div style={{
-                                        width:'24%',
-                                        
-                                        textAlign:'right'
-                                    }}>{showCountdowns===true && "  Countdown"}</div>
-                                </div>
-                            
+                                    width: '21%',
+
+                                    textAlign: 'left',
+                                    paddingLeft: '5%'
+                                }}>Status</div>
+                                <div style={{
+                                    width: '22%',
+
+                                    textAlign: 'center'
+                                }}>Start Time</div>
+                                <div style={{
+                                    width: '22%',
+
+                                    textAlign: 'center'
+                                }}>End Time</div>
+                                <div style={{
+                                    width: '24%',
+
+                                    textAlign: 'right'
+                                }}>{showCountdowns === true && "  Countdown"}</div>
+                            </div>
+
                         </Card>
                         <Card >
-                                        
-                        {area.map((text, index) => (
-                        <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', marginBottom:'20px', height: '25px', width: '100%', borderRadius: '20px', bgcolor:'primary.secondary' }}>
-                                        <div style={{ height: '25px', width: '100%'}}>
-                            <InnerLightning key={index} states={lightning.filter((item) => item.location === text)} location={text} />
-                        </div>
-                        </ListItem>
-                        ))}
+
+                            {area.map((text, index) => (
+                                <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', marginBottom: '20px', height: '25px', width: '100%', borderRadius: '20px', bgcolor: 'primary.secondary' }}>
+                                    <div style={{ height: '25px', width: '100%' }}>
+                                        <InnerLightning key={index} states={lightning.filter((item) => item.location === text)} location={text} />
+                                    </div>
+                                </ListItem>
+                            ))}
                         </Card>
                     </Paper>
                 </Card>
 
                 {area[0] !== 'CIDCO Park' &&
-                    <Card elevation={10} sx={{ margin: '10px' }}><h4><RiWindyLine/> Winds</h4>
-                    <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor:'primary.main' }}>
-                    <Card sx={{
-                            width:'100%',
-                            height:'20%',
-                            display: 'flex',
-                            flexDirection:'row',
-                            marginBottom:'2px',
-                            bgcolor:'primary.secondary'
-                            
-                        }}>
-                            <div style={{
-                                width:'45%',
-                                margin:'0'
-                            }}/>
+                    <Card elevation={10} sx={{ margin: '10px' }}><h4><RiWindyLine /> Winds</h4>
+                        <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor: 'primary.main' }}>
+                            <Card sx={{
+                                width: '100%',
+                                height: '20%',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: '2px',
+                                bgcolor: 'primary.secondary'
+
+                            }}>
                                 <div style={{
-                                    width:'55%',
-                                    display:'flex',
-                                    flexDirection:'space-evenly'
-                                    
+                                    width: '45%',
+                                    margin: '0'
+                                }} />
+                                <div style={{
+                                    width: '55%',
+                                    display: 'flex',
+                                    flexDirection: 'space-evenly'
+
                                 }}>
                                     <div style={{
-                                        width:'21%',
-                                        
-                                        textAlign:'left',
-                                        paddingLeft:'5%'
+                                        width: '21%',
+
+                                        textAlign: 'left',
+                                        paddingLeft: '5%'
                                     }}>Status</div>
                                     <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
+                                        width: '22%',
+
+                                        textAlign: 'center'
                                     }}>Start Time</div>
                                     <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
+                                        width: '22%',
+
+                                        textAlign: 'center'
                                     }}>End Time</div>
                                     <div style={{
-                                        width:'24%',
-                                        
-                                        textAlign:'right'
-                                    }}>{showCountdowns===true && "  Countdown"}</div>
+                                        width: '24%',
+
+                                        textAlign: 'right'
+                                    }}>{showCountdowns === true && "  Countdown"}</div>
                                 </div>
-                            
-                        </Card>
-                        <Card sx={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: 'calc(100%-5%)', boxSizing: 'border-box', width: 'calc(100%-5%)' }}>
-                            {area[0] === 'Cape Central' &&
-                                <ListItem sx={{ bgcolor:'primary.secondary', margin: '10px', height: '25px', boxSizing: 'border-box', width: 'calc(100%-5%)', borderRadius: '20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === '18 kt steady-state')} category={'18 kt steady-state'} />
-                                    </div>
-                                </ListItem>}
-                            {area[0] === 'KSC Industrial' &&
-                                <ListItem sx={{ bgcolor:'primary.secondary', margin: '10px', height: '25px', boxSizing: 'border-box', width: 'calc(100%-5%)', borderRadius: '20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === '18 kt steady-state')} category={'18 kt steady-state'} />
-                                    </div>
-                                </ListItem>}
-                            {area[1] === 'Port' &&
-                                <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === '22 kt steady-state')} category={'22 kt steady-state'}/>
-                                    </div>
-                                </ListItem>}
-                            {area[0] === 'Patrick SFB' &&
-                                <ListItem sx={{ width: 'auto', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === '25 kt observed')} category={'25 kt observed'} />
-                                    </div>
-                                    {/* <Paper sx={{height:'25px', width:'100%', bgcolor:'lightgrey' }}>
+
+                            </Card>
+                            <Card sx={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: 'calc(100%-5%)', boxSizing: 'border-box', width: 'calc(100%-5%)' }}>
+                                {area[0] === 'Cape Central' &&
+                                    <ListItem sx={{ bgcolor: 'primary.secondary', margin: '10px', height: '25px', boxSizing: 'border-box', width: 'calc(100%-5%)', borderRadius: '20px' }}>
+
+                                        <div style={{ height: '25px', width: '100%' }}>
+                                            <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === '18 kt steady-state')} category={'18 kt steady-state'} />
+                                        </div>
+                                    </ListItem>}
+                                {area[0] === 'KSC Industrial' &&
+                                    <ListItem sx={{ bgcolor: 'primary.secondary', margin: '10px', height: '25px', boxSizing: 'border-box', width: 'calc(100%-5%)', borderRadius: '20px' }}>
+
+                                        <div style={{ height: '25px', width: '100%' }}>
+                                            <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === '18 kt steady-state')} category={'18 kt steady-state'} />
+                                        </div>
+                                    </ListItem>}
+                                {area[1] === 'Port' &&
+                                    <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
+
+                                        <div style={{ height: '25px', width: '100%' }}>
+                                            <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === '22 kt steady-state')} category={'22 kt steady-state'} />
+                                        </div>
+                                    </ListItem>}
+                                {area[0] === 'Patrick SFB' &&
+                                    <ListItem sx={{ width: 'auto', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
+
+                                        <div style={{ height: '25px', width: '100%' }}>
+                                            <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === '25 kt observed')} category={'25 kt observed'} />
+                                        </div>
+                                        {/* <Paper sx={{height:'25px', width:'100%', bgcolor:'lightgrey' }}>
                                         
                                     </Paper> */}
-                                </ListItem>}
-                            {area[0] === 'Cape Central' &&
+                                    </ListItem>}
+                                {area[0] === 'Cape Central' &&
 
-                                <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
-                                    </div>
-                                </ListItem>
+                                    <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
 
-                            }
-                            {area[0] === 'Cape Central' &&
-                                <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>
-                                    
-                                    <div style={{ height: '25px', width:'100%' }}>
-                                        <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'} />
-                                    </div>
-                                </ListItem>
-                            }
-                            {area[0] === 'KSC Industrial' &&
-                                <>
-                                    <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
-                                        
-                                        <div style={{ height: '25px', width:'100%' }}>
-                                            <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
-                                        </div>
-                                    </ListItem>
-                                    <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>
-                                        
-                                        <div style={{ height: '25px', width:'100%' }}>
-                                            <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'}/>
-                                        </div>
-                                    </ListItem>
-                                </>
-                            }
-
-                            {area[0] === 'Patrick SFB' &&
-
-
-                                <>
-                                    <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
-                                        
                                         <div style={{ height: '25px', width: '100%' }}>
-                                            <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
+                                            <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
                                         </div>
                                     </ListItem>
-                                    <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>
-                                        
+
+                                }
+                                {area[0] === 'Cape Central' &&
+                                    <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+
                                         <div style={{ height: '25px', width: '100%' }}>
-                                            <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'} />
+                                            <InnerWind states={wind.filter((item) => item.location === 'CCSFS').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'} />
                                         </div>
                                     </ListItem>
+                                }
+                                {area[0] === 'KSC Industrial' &&
+                                    <>
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
+
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
+                                            </div>
+                                        </ListItem>
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <InnerWind states={wind.filter((item) => item.location === 'KSC').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'} />
+                                            </div>
+                                        </ListItem>
+                                    </>
+                                }
+
+                                {area[0] === 'Patrick SFB' &&
 
 
-                                </>
-                            }
+                                    <>
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px' }}>
 
-                        </Card>
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === 'Strong Winds')} category={'Strong Winds'} />
+                                            </div>
+                                        </ListItem>
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <InnerWind states={wind.filter((item) => item.location === 'Patrick SFB').filter((i) => i.category === 'Damaging Winds')} category={'Damaging Winds'} />
+                                            </div>
+                                        </ListItem>
+
+
+                                    </>
+                                }
+
+                            </Card>
                         </Paper>
                     </Card>
                 }
 
                 {area[0] !== 'CIDCO Park' &&
-                    <Card elevation={10} sx={{ margin: '10px' }}><h4><RiThunderstormsLine/> Severe Storms</h4>
-                    <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor:'primary.main' }}>
-                    <Card sx={{
-                            width:'100%',
-                            height:'20%',
-                            display: 'flex',
-                            flexDirection:'row',
-                            marginBottom:'2px'
-                            
-                        }}>
-                            <div style={{
-                                width:'45%',
-                                margin:'0'
-                            }}/>
+                    <Card elevation={10} sx={{ margin: '10px' }}><h4><RiThunderstormsLine /> Severe Storms</h4>
+                        <Paper sx={{ display: 'flex', flexDirection: 'column', padding: '10px', bgcolor: 'primary.main' }}>
+                            <Card sx={{
+                                width: '100%',
+                                height: '20%',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                marginBottom: '2px'
+
+                            }}>
                                 <div style={{
-                                    width:'55%',
-                                    display:'flex',
-                                    flexDirection:'space-evenly'
-                                    
+                                    width: '45%',
+                                    margin: '0'
+                                }} />
+                                <div style={{
+                                    width: '55%',
+                                    display: 'flex',
+                                    flexDirection: 'space-evenly'
+
                                 }}>
                                     <div style={{
-                                        width:'21%',
-                                        
-                                        textAlign:'left',
-                                        paddingLeft:'5%'
+                                        width: '21%',
+
+                                        textAlign: 'left',
+                                        paddingLeft: '5%'
                                     }}>Status</div>
                                     <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
+                                        width: '22%',
+
+                                        textAlign: 'center'
                                     }}>Start Time</div>
                                     <div style={{
-                                        width:'22%',
-                                        
-                                        textAlign:'center'
+                                        width: '22%',
+
+                                        textAlign: 'center'
                                     }}>End Time</div>
                                     <div style={{
-                                        width:'24%',
-                                        
-                                        textAlign:'right'
-                                    }}>{showCountdowns===true && "  Countdown"}</div>
+                                        width: '24%',
+
+                                        textAlign: 'right'
+                                    }}>{showCountdowns === true && "  Countdown"}</div>
                                 </div>
-                            
-                        </Card>
-                        <Card  sx={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: 'calc(100%-5%)', boxSizing: 'border-box', width: 'calc(100%-5%)' }}>
-                        {area[0] === 'KSC Industrial' &&
-                            <>
-                                
-                            <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>   
-                                    <div style={{ height: '25px', width: '100%' }}>
-                                    <AreaSevereStorms states={storm.filter((item) => item.location === 'KSC')} location={'KSC'}>From:{storm.filter((item) => item.location === 'KSC').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'KSC').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
-                                    </div>
-                                </ListItem>
-                           
-                        </>
-                        }
 
-                        {area[0] === 'Cape Central' &&
-                            <>
-                                
-                            <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>   
-                                    <div style={{ height: '25px', width: '100%' }}>
-                                    <AreaSevereStorms states={storm.filter((item) => item.location === 'CCSFS')} location={'CCSFS'}>From:{storm.filter((item) => item.location === 'CCSFS').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'CCSFS').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
-                                    </div>
-                                </ListItem>
-                           
-                        </>
-                        }
+                            </Card>
+                            <Card sx={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: 'calc(100%-5%)', boxSizing: 'border-box', width: 'calc(100%-5%)' }}>
+                                {area[0] === 'KSC Industrial' &&
+                                    <>
 
-                        {area[0] === 'Patrick SFB' &&
-                            <>
-                                
-                                <ListItem sx={{ width: '30%', bgcolor:'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom:'20px' }}>   
-                                        <div style={{ height: '25px', width: '100%' }}>
-                                        <AreaSevereStorms states={storm.filter((item) => item.location === 'PSFB')} location={'PSFB'}>From:{storm.filter((item) => item.location === 'PSFB').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'PSFB').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
-                                        </div>
-                                    </ListItem>
-                               
-                            </>
-                        }
-                        </Card>
-                    </Paper>
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <AreaSevereStorms states={storm.filter((item) => item.location === 'KSC')} location={'KSC'}>From:{storm.filter((item) => item.location === 'KSC').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'KSC').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
+                                            </div>
+                                        </ListItem>
+
+                                    </>
+                                }
+
+                                {area[0] === 'Cape Central' &&
+                                    <>
+
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <AreaSevereStorms states={storm.filter((item) => item.location === 'CCSFS')} location={'CCSFS'}>From:{storm.filter((item) => item.location === 'CCSFS').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'CCSFS').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
+                                            </div>
+                                        </ListItem>
+
+                                    </>
+                                }
+
+                                {area[0] === 'Patrick SFB' &&
+                                    <>
+
+                                        <ListItem sx={{ width: '30%', bgcolor: 'primary.secondary', margin: '10px', height: '25px', width: '100%', borderRadius: '20px', paddingBottom: '20px' }}>
+                                            <div style={{ height: '25px', width: '100%' }}>
+                                                <AreaSevereStorms states={storm.filter((item) => item.location === 'PSFB')} location={'PSFB'}>From:{storm.filter((item) => item.location === 'PSFB').filter((i) => i.wind_direction)}&nbsp; At:{storm.filter((item) => item.location === 'PSFB').filter((i) => i.wind_speed)}KT </AreaSevereStorms>
+                                            </div>
+                                        </ListItem>
+
+                                    </>
+                                }
+                            </Card>
+                        </Paper>
                     </Card>
                 }
             </Card>

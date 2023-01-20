@@ -75,33 +75,33 @@ const LightningProfile = () => {
                     <input type='checkbox'
                            value={"CX-20/16/LZ"}
                            style={{margin:'1%'}}
-                            onChange={()=> handleCCSFSLocations("CX-20/16/LZ")}
+                            onChange={()=> handleCCSFSLocations("CX-20-16-LZ")}
                             disabled ={capeLightningToggle === false}
-                    />{CCSFSLightning.includes("CX-20/16/LZ") ? 'Disable CX-20/16/LZ Monitoring' : 'Enable CX-20/16/LZ Monitoring'}
+                    />{CCSFSLightning.includes("CX-20-16-LZ") ? 'Disable CX-20-16-LZ Monitoring' : 'Enable CX-20-16-LZ Monitoring'}
                 </label>
                 <label style={{width:'100%', paddingLeft:(flexBasis ?'10%': '1%'), margin:'1%'}}>
                     <input type='checkbox'
-                           value={'CX-36/46'}
+                           value={'CX-36-46'}
                            style={{margin:'1%'}}
-                            onChange={()=> handleCCSFSLocations('CX-36/46')}
+                            onChange={()=> handleCCSFSLocations('CX-36-46')}
                             disabled ={capeLightningToggle === false}
-                    />{CCSFSLightning.includes('CX-36/46') ? 'Disable CX-36/46 Monitoring' : 'Enable CX-36/46 Monitoring'}
+                    />{CCSFSLightning.includes('CX-36-46') ? 'Disable CX-36-46 Monitoring' : 'Enable CX-36-46 Monitoring'}
                 </label>
                 <label style={{width:'100%', paddingLeft:(flexBasis ?'10%': '1%'), margin:'1%'}}>
                     <input type='checkbox'
-                           value={'CX-37/ASOC/PPF'}
+                           value={'CX-37-ASOC-PPF'}
                            style={{margin:'1%'}}
-                            onChange={()=> handleCCSFSLocations('CX-37/ASOC/PPF')}
+                            onChange={()=> handleCCSFSLocations('CX-37-ASOC-PPF')}
                             disabled={capeLightningToggle === false}
-                    />{CCSFSLightning.includes('CX-37/ASOC/PPF') ? 'Disable CX-37/ASOC/PPF Monitoring' : 'Enable CX-37/ASOC/PPF Monitoring'}
+                    />{CCSFSLightning.includes('CX-37-ASOC-PPF') ? 'Disable CX-37-ASOC-PPF Monitoring' : 'Enable CX-37-ASOC-PPF Monitoring'}
                 </label>
                 <label style={{width:'100%', paddingLeft:(flexBasis ?'10%': '1%'), margin:'1%'}}>
                 <input type='checkbox'
-                           value={'CX-40/41/SPOC'}
+                           value={'CX-40-41-SPOC'}
                            style={{margin:'1%'}}
-                            onChange={()=> handleCCSFSLocations('CX-40/41/SPOC')}
+                            onChange={()=> handleCCSFSLocations('CX-40-41-SPOC')}
                             disabled ={capeLightningToggle === false}
-                    />{CCSFSLightning.includes('CX-40/41/SPOC') ? 'Disable CX-40/41/SPOC Monitoring' : 'Enable CX-40/41/SPOC Monitoring'}
+                    />{CCSFSLightning.includes('CX-40-41-SPOC') ? 'Disable CX-40-41-SPOC Monitoring' : 'Enable CX-40-41-SPOC Monitoring'}
                 </label>
                 <label style={{width:'100%', paddingLeft:(flexBasis ?'10%': '1%'), margin:'1%'}}>
                     <input type='checkbox'

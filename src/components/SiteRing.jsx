@@ -27,7 +27,7 @@ const  SiteRing = ({item, site})=>{
         }
     },
     {
-        location:'CX-20/16/LZ',
+        location:'CX-20-16-LZ',
         style:{
             position:'relative',
             bottom:'97%',
@@ -39,7 +39,7 @@ const  SiteRing = ({item, site})=>{
         }
     },
     {
-        location:'CX-36/46',
+        location:'CX-36-46',
         style:{
             position:'relative',
             bottom:'97%',
@@ -51,7 +51,7 @@ const  SiteRing = ({item, site})=>{
         }
     },
     {
-        location:'CX-37/ASOC/PPF',
+        location:'CX-37-ASOC-PPF',
         style:{
             position:'relative',
             bottom:'97%',
@@ -63,7 +63,7 @@ const  SiteRing = ({item, site})=>{
         }
     },
     {
-        location:'CX-40/41/SPOC',
+        location:'CX-40-41-SPOC',
         style:{
             position:'relative',
             bottom:'98%',

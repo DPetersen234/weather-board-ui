@@ -43,7 +43,7 @@ const MobileHomeRing= ({item, location})=>{
             }
         },
         {
-            location: 'CX-36/46',
+            location: 'CX-36-46',
             style: {
                 width: '6.2%',
                 height: '5%',
@@ -56,7 +56,7 @@ const MobileHomeRing= ({item, location})=>{
             }
         },
         {
-            location: 'CX-20/16/LZ',
+            location: 'CX-20-16-LZ',
             style: {
                 width: '8.5%',
                 height: '6%',
@@ -69,7 +69,7 @@ const MobileHomeRing= ({item, location})=>{
             }
         },
         {
-            location: 'CX-37/ASOC/PPF',
+            location: 'CX-37-ASOC-PPF',
             style: {
                 width: '8%',
                 height: '6%',
@@ -81,7 +81,7 @@ const MobileHomeRing= ({item, location})=>{
             }
         },
         {
-            location: 'CX-40/41/SPOC',
+            location: 'CX-40-41-SPOC',
             style: {
                 width: '8%',
                 height: '6.1%',

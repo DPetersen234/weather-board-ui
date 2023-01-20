@@ -4,7 +4,7 @@ import {
     Grid, Card,
 } from '@mui/material'
 import { Box } from '@mui/material'
-
+import { useParams } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import { AppContext } from '../../context/AppContext'
 import SiteTabs from './sitetabs'
@@ -13,22 +13,23 @@ const cookies = new Cookies()
 const MobileSiteView = () => {
 
     const imageArray=[
-        {location:'Astrotech', imgsrc:'./images/astrotech.PNG'},
-        {location:'Cape Central', imgsrc:'./images/cape central.PNG'},
-        {location:'CIDCO Park', imgsrc:'./images/cidco park.PNG'},
-        {location:'CX-20/16/LZ', imgsrc:'./images/cx-20-16.PNG'},
-        {location:'CX-36/46', imgsrc:'./images/cx-36-46.PNG'},
-        {location:'CX-37/ASOC/PPF', imgsrc:'./images/cx-37-asoc.PNG'},
-        {location:'CX-40/41/SPOC', imgsrc:'./images/cx-40-41.PNG'},
-        {location:'KSC Industrial', imgsrc:'./images/KSC Industrial.PNG'},
-        {location:'LC-39', imgsrc:'./images/LC-39.PNG'},
-        {location:'Port', imgsrc:'./images/port.PNG'},
-        {location:'SLF', imgsrc:'./images/SLF.PNG'}
+        {location:'Astrotech', imgsrc:'../images/astrotech.PNG'},
+        {location:'Cape Central', imgsrc:'../images/cape central.PNG'},
+        {location:'CIDCO Park', imgsrc:'../images/cidco park.PNG'},
+        {location:'CX-20-16-LZ', imgsrc:'../images/cx-20-16.PNG'},
+        {location:'CX-36-46', imgsrc:'../images/cx-36-46.PNG'},
+        {location:'CX-37-ASOC-PPF', imgsrc:'../images/cx-37-asoc.PNG'},
+        {location:'CX-40-41-SPOC', imgsrc:'../images/cx-40-41.PNG'},
+        {location:'KSC Industrial', imgsrc:'../images/KSC Industrial.PNG'},
+        {location:'LC-39', imgsrc:'../images/LC-39.PNG'},
+        {location:'Port', imgsrc:'../images/port.PNG'},
+        {location:'SLF', imgsrc:'../images/SLF.PNG'}
         
     ]
 
-    const { lightning, storm, wind, area, site, imagePath, setImagePath, showCountdowns } = useContext(AppContext)
-
+    const { lightning, storm, wind, area,  imagePath, setImagePath, showCountdowns } = useContext(AppContext)
+    const params = useParams()
+    const site = params.id
     cookies.set('area', area, {path:'/'})
     cookies.set('imagePath', imagePath, {path:'/'})
     if (site!==[]){

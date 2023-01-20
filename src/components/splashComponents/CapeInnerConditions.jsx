@@ -19,9 +19,9 @@ const CapeInnerConditions = ({ item, location }) => {
             setImagePath('../../images/psfb.PNG')
             navigate('/area')
         }else{
-            setArea(['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
+            setArea(['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'])
             setSite(location)
-            navigate('/site')
+            navigate(`/site/${location}`)
         }
         
     }

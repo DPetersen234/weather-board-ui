@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import ProfilePage from './Pages/ProfilePage';
 import AdminPage from './Pages/AdminPage';
 import AreaView from './components/AreaView';
@@ -18,6 +18,7 @@ import MobileSiteView from './test components/location components/mobilesite';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { colors } from '@mui/material';
+import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
 const url = 'https://weather-board.onrender.com'
 const cookies = new Cookies()
@@ -33,7 +34,6 @@ function App() {
   const [site, setSite] = useState((cookies.get('site') !== [] ? cookies.get('site') : []))
   const [profiler, setProfiler] = useState([])
   const [lightning, setLightning] = useState([])
-  
   const [lightningLocation, setLightningLocation] = useState([])
   const [storm, setStorm] = useState([])
   const [wind, setWind] = useState([])
@@ -93,7 +93,7 @@ function App() {
   const [toggle, setToggle] = useState(0)
   const [showCountdowns, setShowCountdowns] = useState(true)
   const [someState, setSomeState] = useState(0)
-  const [CCSFSLightning, setCCSFSLightning] = useState( cookies.get('authentication') !== undefined ? userHold.capeLightning : ['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC'])
+  const [CCSFSLightning, setCCSFSLightning] = useState( cookies.get('authentication') !== undefined ? userHold.capeLightning : ['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC'])
   const [KSCLightning, setKSCLightning] = useState(cookies.get('authentication') !== undefined ? userHold.kscLightning : ['SLF','KSC Industrial', 'LC-39'])
   const [OtherLightning, setOtherLightning] = useState(cookies.get('authentication') !== undefined ? userHold.otherLightning : ['CIDCO Park', 'Astrotech'])
   const [profileLoad, setProfileLoad] = useState(0)
@@ -257,6 +257,7 @@ function App() {
   themeText === 'deuteranopia' ? duetTheme: 
   tritTheme
 )
+
 const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeText === 'light' ? lightTheme : lightTheme)
 
   const passContext = {
@@ -359,9 +360,9 @@ const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeTex
     setThemeText,
     setModeText,
     modeText,
-    themeText
+    themeText,
   }
-
+  
   const flexBasis = useMediaQuery("(min-width:700px)");
 
   useEffect(() => {
@@ -430,8 +431,8 @@ const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeTex
                 <Routes>
                   <Route path='/' element={flexBasis? <UserPage /> : <TestHome/>} />
                   <Route path='/admin' element={<AdminPage />} />
-                  <Route path='/area' element={flexBasis ? <AreaView /> : <MobileArea/>} />
-                  <Route path='/site' element={ flexBasis ? <SiteView /> : <MobileSiteView/>} />
+                  <Route path='/area/:id' element={flexBasis ? <AreaView /> : <MobileArea/>} />
+                  <Route path='/site/:id' element={ flexBasis ? <SiteView/> : <MobileSiteView/>} />
                   <Route path='/sign_in' element={<SignIn />} />
                   <Route path='/sign_up' element={<SignUp />} />
                   <Route path='profile' element={<ProfilePage/>} />

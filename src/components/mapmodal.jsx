@@ -48,7 +48,7 @@ export default function MapModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const {lightning} = useContext(AppContext)
-  const coverageAreas = ['Cape Central', 'Port', 'CX-20/16/LZ', 'CX-36/46', 'CX-37/ASOC/PPF', 'CX-40/41/SPOC', 'KSC Industrial', 'LC-39', 'SLF', 'CIDCO Park', 'Astrotech', 'Patrick SFB']
+  const coverageAreas = ['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC', 'KSC Industrial', 'LC-39', 'SLF', 'CIDCO Park', 'Astrotech', 'Patrick SFB']
 
   
   return (

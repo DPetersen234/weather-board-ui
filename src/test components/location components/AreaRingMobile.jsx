@@ -43,7 +43,7 @@ const AreaRingMobile= ({location, item})=>{
             }
         },
         {
-            location: 'CX-36/46',
+            location: 'CX-36-46',
             style: {
                 width: '14.2%',
                 height: '8.8%',
@@ -56,7 +56,7 @@ const AreaRingMobile= ({location, item})=>{
             }
         },
         {
-            location: 'CX-20/16/LZ',
+            location: 'CX-20-16-LZ',
             style: {
                 width: '19%',
                 height: '12.5%',
@@ -69,7 +69,7 @@ const AreaRingMobile= ({location, item})=>{
             }
         },
         {
-            location: 'CX-37/ASOC/PPF',
+            location: 'CX-37-ASOC-PPF',
             style: {
                 width: '21.7%',
                 height: '13.2%',
@@ -82,7 +82,7 @@ const AreaRingMobile= ({location, item})=>{
             }
         },
         {
-            location: 'CX-40/41/SPOC',
+            location: 'CX-40-41-SPOC',
             style: {
                 width: '20%',
                 height: '13%',
