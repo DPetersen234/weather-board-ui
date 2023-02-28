@@ -31,7 +31,7 @@ color: white;
 //storm weather violations
 const SevereStormButton = ({ severeType, locations, stormConditions, severeStormTime2, severeStormTime, severeStormStartDate, severeStormEndDate }) => {
   const {setLoading, toggle, setToggle} = useContext(AppContext);
-  const url = 'https://weather-board.onrender.com'
+  const url = 'http://localhost:8081'
   const handleSubmit = () => {
     let fullStart = severeStormStartDate + ' ' + severeStormTime + ":00"
     let fullEnd = severeStormEndDate + ' ' + severeStormTime2 + ":00"

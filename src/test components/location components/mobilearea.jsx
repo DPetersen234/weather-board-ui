@@ -8,6 +8,7 @@ import LeftBar from '../../components/LeftBar'
 import Cookies from 'universal-cookie'
 import { AppContext } from '../../context/AppContext'
 import AreaTabs from './areatabs'
+import NotFoundAlert from '../../components/NotFoundAlert'
 
 
 const cookies = new Cookies()
@@ -34,7 +35,11 @@ const findImage = () => {
  }
     cookies.set('area', area, {path:'/'})
     cookies.set('imagePath', imagePath, {path:'/'})
-
+    if (id === 'CCSFS' ||
+        id === 'KSC'   ||
+        id === 'PSFB'  ||
+        id === 'Other'
+        ){
     return (
 
         <Box sx={{ width: '100%', height: '100vh' }}>
@@ -53,6 +58,11 @@ const findImage = () => {
         </Box>
 
     )
+} else {
+    return(
+        <NotFoundAlert/>
+    )
+}
 }
 
 export default MobileArea

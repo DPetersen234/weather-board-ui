@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Card } from '@mui/material'
 import { Paper, useMediaQuery } from '@mui/material'
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import LeftBar from './LeftBar';
 import { AppContext } from '../context/AppContext';
 import Box from '@mui/material/Box';
 import InnerLightning from './splashComponents/innerLightning'
 import InnerWind from './splashComponents/innerWInd'
-import SevereStormBar from './splashComponents/severeStormBar'
 import Cookies from 'universal-cookie'
 import { BsLightning } from 'react-icons/bs'
 import { RiWindyLine } from 'react-icons/ri'
@@ -16,18 +14,16 @@ import { RiThunderstormsLine } from 'react-icons/ri'
 import AreaSevereStorms from './splashComponents/areaSevereStorms'
 import AreaRing from './AreaRing'
 import { useParams } from 'react-router-dom';
+import NotFoundAlert from './NotFoundAlert';
 
 const cookies = new Cookies()
 
 const AreaView = () => {
 
-    const { lightning, storm, wind, showCountdowns, themeToggle, setCookieData, site } = useContext(AppContext)
+    const { lightning, storm, wind, showCountdowns, themeToggle } = useContext(AppContext)
     const params = useParams()
     const id = params.id
-    // if (area !== []) {
-    //     cookies.set('area', area, { path: '/' })
-    //     cookies.set('imagePath', imagePath, { path: '/' })
-    // }
+   
     const area = (id === 'CCSFS' ? ['Cape Central', 'Port', 'CX-20-16-LZ', 'CX-36-46', 'CX-37-ASOC-PPF', 'CX-40-41-SPOC']:
                   id === 'KSC' ? ['KSC Industrial', 'LC-39', 'SLF'] :
                   id === 'Other' ? ['CIDCO Park', 'Astrotech'] :
@@ -48,6 +44,11 @@ const AreaView = () => {
      }
 
     const flexBasis = useMediaQuery('(min-width: 1200px)')
+    if (id === 'CCSFS' ||
+        id === 'KSC'   ||
+        id === 'PSFB'  ||
+        id === 'Other'
+        ){
     return (
         <Box sx={{ display: 'flex', flexDirection: 'row', paddingTop: (flexBasis ? '3%' : '8%'), bgcolor: (themeToggle === false ? 'text.primary' : 'background.default') }}>
             <LeftBar />
@@ -356,6 +357,11 @@ const AreaView = () => {
 
         </Box>
     )
+}else{
+    return(
+        <NotFoundAlert/>
+    )
+}
 }
 
 export default AreaView

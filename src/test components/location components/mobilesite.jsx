@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import MobileNav from '../MobileNav'
 import {
     Grid, Card,
 } from '@mui/material'
@@ -9,6 +8,7 @@ import Cookies from 'universal-cookie'
 import { AppContext } from '../../context/AppContext'
 import SiteTabs from './sitetabs'
 import LeftBar from '../../components/LeftBar'
+import NotFoundAlert from '../../components/NotFoundAlert'
 const cookies = new Cookies()
 const MobileSiteView = () => {
 
@@ -27,7 +27,7 @@ const MobileSiteView = () => {
         
     ]
 
-    const { lightning, storm, wind, area,  imagePath, setImagePath, showCountdowns } = useContext(AppContext)
+    const { area, imagePath} = useContext(AppContext)
     const params = useParams()
     const site = params.id
     cookies.set('area', area, {path:'/'})
@@ -37,6 +37,17 @@ const MobileSiteView = () => {
         cookies.set('area', area, {path:'/'})
     }
 
+    if (site ==='Astrotech' ||
+        site === 'Cape Central' ||
+        site === 'CIDCO Park' ||
+        site === 'CX-20-16-LZ' ||
+        site === 'CX-36-46' ||
+        site === 'CX-37-ASOC-PPF'||
+        site === 'CX-40-41-SPOC' ||
+        site === 'KSC Industrial' ||
+        site === 'LC-39' ||
+        site === 'Port' ||
+        site === 'SLF') {
     return (
 
         <Box sx={{ width: '100%', height: '100vh' }}>
@@ -56,7 +67,11 @@ const MobileSiteView = () => {
             </Grid>
         </Box>
 
-    )
+    )} else {
+        return(
+            <NotFoundAlert/>
+        )
+    }
 }
 
 export default MobileSiteView

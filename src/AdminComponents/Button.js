@@ -26,8 +26,7 @@ color: white;
   font-family: Kanit;
 }
 `
-const url = 'https://weather-board.onrender.com'
-
+const url = 'http://localhost:8081'
 //Functionality for the button within the Lightning Splash panel of the Admin page. It delivers a fetch call to the 
 // /lightning endpoint to update all present Lightning WWA violations for all locations
 

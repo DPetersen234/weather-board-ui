@@ -19,6 +19,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { colors } from '@mui/material';
 import { setSelectionRange } from '@testing-library/user-event/dist/utils';
+import HomeByLocation from './Pages/HomeByLocation';
 
 const url = 'https://weather-board.onrender.com'
 const cookies = new Cookies()
@@ -429,7 +430,7 @@ const [theming, SetTheming] = useState(modeText === 'dark' ? darkTheme : modeTex
         <AppContext.Provider value={passContext}>
           <Router>
                 <Routes>
-                  <Route path='/' element={flexBasis? <UserPage /> : <TestHome/>} />
+                  <Route path='/' element={flexBasis? <UserPage/> : <TestHome/>} />
                   <Route path='/admin' element={<AdminPage />} />
                   <Route path='/area/:id' element={flexBasis ? <AreaView /> : <MobileArea/>} />
                   <Route path='/site/:id' element={ flexBasis ? <SiteView/> : <MobileSiteView/>} />

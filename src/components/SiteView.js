@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react'
-import { Card, CardMedia } from '@mui/material'
+import React, { useContext } from 'react'
+import { Card} from '@mui/material'
 import { Paper, useMediaQuery } from '@mui/material'
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import LeftBar from './LeftBar';
 import { AppContext } from '../context/AppContext';
 import Box from '@mui/material/Box';
 import InnerLightning from './splashComponents/innerLightning'
 import InnerWind from './splashComponents/innerWInd'
-import SevereStormBar from './splashComponents/severeStormBar'
 import SiteImage from './siteimage'
 import Cookies from 'universal-cookie'
 import { BsLightning } from 'react-icons/bs'
@@ -17,9 +15,7 @@ import { RiThunderstormsLine } from 'react-icons/ri'
 import AreaSevereStorms from './splashComponents/areaSevereStorms'
 import SiteRing from './SiteRing';
 import { useParams, useNavigate } from 'react-router-dom';
-import {Alert} from '@mui/material';
-import {AlertTitle }from '@mui/material';
-import {Button} from '@mui/material';
+import NotFoundAlert from './NotFoundAlert';
 
 const cookies = new Cookies()
 
@@ -365,11 +361,7 @@ const SiteView = () => {
 }
  else {
     return(
-    <Alert severity ='error'>
-        <AlertTitle>Error: Domain not found!</AlertTitle>
-        <Button sx={{bgcolor:'black'}} onClick = {()=> navigate('/')}>Return to Home Page</Button>
-    </Alert>
-)
-
+        <NotFoundAlert/>
+    )
 }}
 export default SiteView
